@@ -10,7 +10,7 @@ import images7 from "../Images/Carousel10.jpg";
 import styles from "./ImageCarousel.module.css"
 
 const ImageCarousel = () => (
-  <Carousel autoPlay showIndicators={false} showThumbs={false} className={styles.center} >
+  <Carousel autoPlay showIndicators={false} showThumbs={false} infiniteLoop={true} className={styles.center} >
     
     <div>
       <img
