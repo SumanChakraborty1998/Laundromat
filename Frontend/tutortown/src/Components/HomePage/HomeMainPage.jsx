@@ -1,4 +1,5 @@
 import React from 'react';
+import Join from '../JoinChat/Join';
 import AwardsAndRecognition from './AwardsAndRecognition';
 import ButtonAppBar from './ButtonAppBar';
 import { Footer } from './Footer';
@@ -12,6 +13,8 @@ const HomeMainPage = () => {
             < ImageCarousel />
             < HomePageSlide1 />
             < AwardsAndRecognition />
+            
+            <Join/>
             < Footer />
         </div>
     );

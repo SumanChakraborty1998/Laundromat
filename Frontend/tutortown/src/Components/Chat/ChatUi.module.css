@@ -1,0 +1,18 @@
+.chatui{
+    max-width: 450%;
+    min-width: 450%;
+    border: 1px solid black;
+    min-height:380px;
+    background-color: white;
+    color: blue;
+    margin-top: -80%;
+    margin-left: -340%;
+}
+
+.chat 
+{
+    max-width: 450%;
+    min-width: 450%;
+    min-height: 320px;
+    border: 2px solid blue;
+}
