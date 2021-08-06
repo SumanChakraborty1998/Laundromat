@@ -13,8 +13,9 @@ const AwardsAndRecognition = () => {
         <br />
         <br />
         <br />
-        <div className={styles.fontBig}>Awards And Recognitions</div>
         <br />
+        <br />
+        <div className={styles.fontBig}>Awards And Recognitions</div>
         <br />
         <br />
         <br />
