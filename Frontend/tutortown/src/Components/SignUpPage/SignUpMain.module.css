@@ -12,14 +12,14 @@
 
 .sign_up_header {
     background-color: #FCD21C;
-    width: 70%;
+    width: 65%;
     padding: 10px 20px 10px 20px;
     box-sizing: border-box;
     margin: auto;
     margin-top: 100px;
     font-family: 'Quicksand', sans-serif;
     font-size: 28px;
-    font-weight: 700;
+    font-weight: 900;
     color: #141823;
     border-radius: 0.5em;
     /* border: 2px solid #141823; */
