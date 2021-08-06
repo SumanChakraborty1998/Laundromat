@@ -1,0 +1,18 @@
+.flexFooter {
+  padding-top: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.flexFooter a {
+  color: gray;
+}
+
+.footerCont {
+  background-color: black;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
