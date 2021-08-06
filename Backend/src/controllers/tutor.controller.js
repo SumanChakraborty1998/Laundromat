@@ -4,6 +4,7 @@ const router = express.Router();
 const Tutor = require("../models/tutor.model");
 const Place = require("../models/place.model");
 const Subject = require("../models/subject.model");
+const Student = require("../models/student.model");
 
 router.get("/", async (req, res) => {
     let tutors = await Tutor.find().lean().exec();
@@ -11,6 +12,7 @@ router.get("/", async (req, res) => {
     return res.status(200).json({ data: tutors });
 });
 
+//For normal register part.
 router.post("/new", async (req, res) => {
     let no_of_entries = Object.keys(req.body).length;
     let body = { ...req.body, is_completed: false };
@@ -20,6 +22,24 @@ router.post("/new", async (req, res) => {
     }
     let tutor = await Tutor.create(body);
     return res.status(201).json({ data: tutor });
+});
+
+//For login of Tutor
+router.post("/auth/login", async (req, res) => {
+    let tutor = await Tutor.findOne({
+        $and: [{ email: req.body.email }, { password: req.body.password }],
+    });
+
+    let students = await Student.find({
+        allocated_tutors: { $in: [tutor._id] },
+    })
+        .lean()
+        .exec();
+
+    // console.log(students);
+
+    // console.log(allocated_students);
+    return res.status(201).json({ data: { tutor, students } });
 });
 
 //Find Tutors according to location and subject
