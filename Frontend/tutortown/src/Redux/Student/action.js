@@ -132,9 +132,9 @@ export const patchTutorFailure = (err) => {
 export const getTutorData = payload => dispatch => {
     dispatch( getTutorRequest() )
 
-    return axios.get("https://masai-project.herokuapp.com/bag", payload )
+    return axios.get("http://localhost:3001/tutors/Delhi-East/mathematics", payload )
     .then(res => {
-        dispatch( getTutorSuccess(res.data) )
+        dispatch( getTutorSuccess(res.data.tutors) )
     })
     .catch(err=> {
         dispatch( getTutorFailure() )
