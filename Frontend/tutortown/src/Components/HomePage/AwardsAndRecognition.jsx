@@ -11,7 +11,12 @@ const AwardsAndRecognition = () => {
         <>
         <br />
         <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <div className={styles.fontBig}>Awards And Recognitions</div>
+        <br />
         <br />
         <br />
 
@@ -32,6 +37,8 @@ const AwardsAndRecognition = () => {
                 <img src={award5} alt="" />
             </div>
         </div>
+        <br />
+        <br />
         <br />
         <br />
 
