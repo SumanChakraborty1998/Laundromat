@@ -9,8 +9,8 @@ const HomeMainPage = () => {
     return (
         <div>
             < ButtonAppBar />
-            < ImageCarousel />
             < HomePageSlide1 />
+            < ImageCarousel />
             < AwardsAndRecognition />
             < Footer />
         </div>
