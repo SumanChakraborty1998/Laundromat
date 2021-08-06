@@ -1,10 +1,12 @@
 import './App.css';
-import HomeMainPage from './Components/HomePage/HomeMainPage';
+import SignUpMain from './Components/SignUpPage/SignUpMain';
+// import HomeMainPage from './Components/HomePage/HomeMainPage';
 
 function App() {
   return (
     <div className="App">
-      < HomeMainPage />
+      {/* < HomeMainPage /> */}
+      <SignUpMain />
     </div>
   );
 }
