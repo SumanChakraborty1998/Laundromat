@@ -7,26 +7,27 @@ import images4 from "../Images/Carousel4.jpg";
 import images5 from "../Images/Carousel5.jpeg";
 import images6 from "../Images/Carousel9.jpg";
 import images7 from "../Images/Carousel10.jpg";
+import styles from "./ImageCarousel.module.css"
 
 const ImageCarousel = () => (
-  <Carousel autoPlay showIndicators={false} showThumbs={false} >
+  <Carousel autoPlay showIndicators={false} showThumbs={false} infiniteLoop={true} className={styles.center} >
     
     <div>
       <img
         alt=""
-        src={images5} height="500px" />
+        src={images5} width="100%" height="500px" />
     </div>
 
     <div>
       <img
         alt=""
-        src={images2} height="500px" />
+        src={images2} width="100%" height="500px" />
     </div>
 
     <div>
       <img
         alt=""
-        src={images3} height="500px" />
+        src={images3} width="100%" height="500px" />
     </div>
 
     <div>
@@ -38,7 +39,7 @@ const ImageCarousel = () => (
     <div>
       <img
         alt=""
-        src={images4} height="500px" />
+        src={images4} width="100%" height="500px" />
     </div>
 
     <div>

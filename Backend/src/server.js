@@ -16,6 +16,14 @@ const io = socketio(server);
 io.on("connection", (socket) => {
   console.log("we have new user");
 
+  socket.on('join', ({tutorName, tutorChat}, callback) => {
+      console.log(tutorName,tutorChat)
+
+      const error = true
+       if ( error) {
+           callback({error:'error'})
+       }
+  })
   socket.on("disconect", () => {
     console.log("user has left");
   });
