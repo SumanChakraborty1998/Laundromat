@@ -1,0 +1,14 @@
+.display {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.fontBig {
+    font-size: 46px;
+    font-weight: 900;
+}
+
+.marginTop {
+    margin-top: 25px;
+}
