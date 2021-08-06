@@ -74,6 +74,11 @@ const tutorSchema = new mongoose.Schema(
             type: String,
             required: false,
         },
+        is_completed: {
+            type: Boolean,
+            required: false,
+            default: false,
+        },
     },
     { timestamps: true, versionKey: false },
 );
