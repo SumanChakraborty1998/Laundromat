@@ -86,6 +86,18 @@
     color: #000000;
 }
 
+.done_circle {
+    width: 25px;
+    height: 25px;
+    border: 5px solid #4AB119;
+    border-radius: 1.5em;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #4AB119;
+    color: #FFFFFF;
+}
+
 .empty_bar {
     width: 200px;
     height: 5px;
@@ -94,6 +106,16 @@
     margin-left: 8px;
     margin-top: 15px;
    
+}
+
+.done_bar {
+    width: 200px;
+    height: 5px;
+    background-color: #4AB119;
+    border-radius: 0.5em;
+    margin-left: 8px;
+    margin-top: 15px;
+    margin-right: 8px;
 }
 
 .empty_circle {
@@ -307,4 +329,93 @@
     background-color: #F37638;
     color: #FFFFFF;
     margin-top: 10px;
+}
+
+.heading_deg_marks_exp {
+    color: #141823;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    display: flex;
+}
+
+.heading_deg_marks_exp > div:nth-child(1) {
+    margin-right: 215px;
+}
+
+.heading_deg_marks_exp > div:nth-child(2) {
+    margin-right: 180px;
+}
+
+.deg_marks_exp_input {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.deg_marks_exp_input > input {
+    outline: none;
+    border: 1px solid #E5EDF6;
+    width: 407px;
+    height: 35px;
+    padding: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 8px;
+}
+
+.deg_marks_exp_input > select {
+    outline: none;
+    border: 1px solid #E5EDF6;
+    width: 150px;
+    height: 35px;
+    padding: 7px 10px 10px 10px;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 8px;
+}
+
+.deg_marks_exp_input > select:nth-child(1) {
+    width: 250px;
+}
+
+.deg_marks_exp_input > input:nth-child(2) {
+    width: 250px;
+}
+
+.deg_marks_exp_input > select:nth-child(3) {
+    width: 250px;
+}
+
+.heading_skills {
+    color: #141823;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    display: flex;
+}
+
+.heading_skills > div:nth-child(1) {
+    margin-right: 357px;
+}
+
+.skills_input {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 22px;
+}
+
+.skills_input > textarea {
+    outline: none;
+    border: 1px solid #E5EDF6;
+    width: 407px;
+    height: 120px;
+    padding: 10px 10px 10px 10px;
+    box-sizing: border-box;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    margin-top: 8px;
 }
