@@ -3,12 +3,12 @@ import styles from "./SignUpCont.module.css";
 
 
 function SignUpCont() {
-    const [tutor, setTutor] = useState(true);
+    const [tutor, setTutor] = useState(false);
     const [student, setStudent] = useState(false);
 
-    const [basicDetails, setBasicDetails] = useState(false);
+    const [basicDetails, setBasicDetails] = useState(true);
     const [qualification, SetQualification] = useState(false);
-    const [verification, setVerification] = useState(true);
+    const [verification, setVerification] = useState(false);
     const [done, SetDone] = useState(false);
 
     const handleSetTutor = () => {
@@ -34,6 +34,16 @@ function SignUpCont() {
         setVerification(true);
         SetDone(false);
     }
+
+    const handleDone = (e) => {
+        e.preventDefault();
+        setBasicDetails(false);
+        SetQualification(false);
+        setVerification(false);
+        SetDone(true);
+    }
+
+    
 
 
     return (
@@ -182,42 +192,54 @@ function SignUpCont() {
                 </div>
                 <form action="" className={styles.form_main}>
                     <div className={styles.heading_deg_marks_exp}>
-                        <div>Degree</div>
-                        <div>Marks in (%)</div>
-                        <div>Experience (in years)</div>
+                        <div>Aadhar Number</div>
                     </div>
                     <div className={styles.deg_marks_exp_input}>
-                        <select name="" id="">
-                            <option value="">Select Degree</option>
-                            <option value="">B.sc</option>
-                            <option value="">M.sc</option>
-                            <option value="">B.Tech</option>
-                            <option value="">B.A</option>
-                            <option value="">B.com</option>
-                            <option value="">B.C.A</option>
-                            <option value="">M.C.A</option>
-                        </select>
-                        <input type="number" placeholder="Percentage"/>
-                        <select name="" id="">
-                            <option value="">Experience</option>
-                            <option value="">Less than 1 year</option>
-                            <option value="">1 Years</option>
-                            <option value="">2 Years</option>
-                            <option value="">3 Years</option>
-                            <option value="">4 Years</option>
-                            <option value="">5 Years</option>
-                        </select>
+                        <input type="number" placeholder="Enter aadhar number"/>
                     </div>
-                    <div className={styles.heading_skills}>
-                        <div>Skills</div>
-                        <div>Why do you want to work for our company?</div>
+                    <div className={styles.heading_address}>
+                        <div>Current Address</div>
+                        <div>Permanent Address</div>
                     </div>
-                    <div className={styles.skills_input}>
-                    <textarea type="text"/>
+                    <div className={styles.address_input}>
+                        <textarea type="text"/>
                         <textarea type="text"/>
                     </div>
-                    <button className={styles.continue_button} onClick={handleVerification}>Verification</button>
+                    <div className={styles.heading_files}>
+                        <div>Upload Picture</div>
+                        <div>Upload Aadhar</div>
+                    </div>
+                    <div className={styles.file_input}>
+                        <input type="file"/>
+                        <input type="file"/>
+                    </div>
+                    <button className={styles.continue_button} onClick={handleDone}>Continue</button>
                 </form>
+            </div> : done ? <div className={styles.tutor_basic_details}>
+                <div className={styles.process_bar_main}>
+                    <div className={styles.done_circle}>1</div>
+                    <div className={styles.done_bar}></div>
+                    <div className={styles.done_circle}>2</div>
+                    <div className={styles.done_bar} ></div>
+                    <div className={styles.done_circle}>3</div>
+                    <div className={styles.done_bar}></div>
+                    <div className={styles.done_circle}>4</div>
+                </div>
+                <div className={styles.process_bar_heading}>
+                    <div>Basic Details</div>
+                    <div>Qualification & Skills</div>
+                    <div>Varification Details</div>
+                    <div>Done</div>
+                </div>
+                <div action="" className={styles.form_main}>
+                    <div className={styles.done_icon}>
+                        <img src="https://i.imgur.com/C4jmsG5.png" alt="" style={{width:"100%"}}/>
+                    </div>
+                    <div className={styles.succesfull}>
+                        Successfully Registered!
+                    </div>
+                    <button className={styles.continue_button} onClick={handleDone}>Done</button>
+                </div>
             </div> : "" : ""}
         </div>
     );
