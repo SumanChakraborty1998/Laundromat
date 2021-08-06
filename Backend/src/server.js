@@ -1,6 +1,8 @@
 const express = require("express");
 const connect = require("./config/db");
 
+const PORT = process.env.PORT || 3001;
+
 const app = express();
 app.use(express.json());
 
@@ -21,8 +23,8 @@ app.use("/bookings", bookingsController);
 const start = async () => {
     await connect();
 
-    app.listen(3001, async () => {
-        console.log("Warriors are onboarded at 3001...");
+    app.listen(PORT, async () => {
+        console.log(`Warriors are onboarded at ${PORT}...`);
     });
 };
 
