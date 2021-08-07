@@ -42,31 +42,30 @@ const TutorChat = () => {
   };
   return (
     <div className={styles.chat}>
-
-     {renderChat()}
+      {renderChat()}
 
       <div className={styles.stick}>
         <form onSubmit={onMessageSubmit}>
           <div className={styles.disp}>
-          <div className="name-field">
-            <TextField
-              name="name"
-              onChange={(e) => onTextChange(e)}
-              value={state.name}
-              label="Name"
-              variant='outlined'
-            />
-          </div>
-          <div>
-            <TextField
-              name="message"
-              onChange={(e) => onTextChange(e)}
-              value={state.message}
-              id="outlined-multiline-static"
-              variant="outlined"
-              label="Message"
-            />
-          </div>
+            <div className="name-field">
+              <TextField
+                name="name"
+                onChange={(e) => onTextChange(e)}
+                value={state.name}
+                label="Name"
+                variant="outlined"
+              />
+            </div>
+            <div>
+              <TextField
+                name="message"
+                onChange={(e) => onTextChange(e)}
+                value={state.message}
+                id="outlined-multiline-static"
+                variant="outlined"
+                label="Message"
+              />
+            </div>
           </div>
           <button className={styles.sendbtn}>Send</button>
         </form>

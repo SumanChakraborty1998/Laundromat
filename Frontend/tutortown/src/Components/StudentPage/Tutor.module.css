@@ -1,0 +1,64 @@
+.display {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 25% 25% 25%;
+    row-gap: 50px;
+    /* column-gap: -200px; */
+}
+
+.tutorCard {
+    /* border: 2px solid red; */
+    padding: 30px;
+    font-size: 20px;
+}
+
+.tutorCard:hover {
+    background-color: #c79aae;
+}
+
+.bigFont {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.colorText {
+    color: #C51162;
+    font-weight: 700;
+    /* text-decoration: underline; */
+    line-height: 1.5;
+}
+
+.roundImg {
+    border: 2px solid #C51162;
+    border-radius: 50%;
+}
+
+.demoModalCard {
+    width: 400px;
+    height: 150px;
+    /* border: 5px solid red; */
+    /* font-weight: bold; */
+    position: fixed;
+    /* top: 300; */
+    margin-top: 500px;
+    z-index: 5;
+    margin-top: 145px;
+    /* right: 560px; */
+    margin-left: 550px;
+    padding: 50px;
+    border-radius: 10px; 
+    /* color: white; */
+    font-size: 26px;
+    opacity: 1;
+    background-color: white;
+}
+
+.bgCard {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(177, 170, 170);
+    opacity: 0.95;
+    position: fixed;
+    top: 0;
+    z-index: 4;
+}
