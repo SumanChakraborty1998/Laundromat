@@ -11,8 +11,33 @@
 
 .chat 
 {
-    max-width: 450%;
-    min-width: 450%;
-    min-height: 320px;
+    max-width: 99%;
+    min-width: 99%;
+    min-height: 340px;
+    max-height: 340px;
     border: 2px solid blue;
+}
+
+.chatinp {
+    margin-top: 88%;
+    width: 84%;
+    margin-left: -3%;
+    max-height: 380px;
+    min-height: 40px;
+}
+
+.chatbtn {
+    width: 50%;
+    height: 35px;
+    border-radius: 0;
+    border: none;
+    border-right: 1px solid darkgrey;
+border-bottom: 1px solid darkgray;
+font-family: 'Quicksand', sans-serif;
+font-weight: bold;
+}
+
+.sendbtn {
+    margin-left: 4%;
+    width: 9%;
 }

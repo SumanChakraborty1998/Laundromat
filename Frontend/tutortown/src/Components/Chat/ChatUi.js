@@ -9,8 +9,8 @@ const ChatUi = () => {
   const [studentName, setStudentName] = React.useState("");
   const tutorChat = "tutorroom";
   const studentChat = "studentroom";
-  const [tdisplay, setTDisplay] = React.useState(true);
-  const [sdisplay, setSDisplay] = React.useState(false);
+  const [tdisplay, setTDisplay] = React.useState(false);
+  const [sdisplay, setSDisplay] = React.useState(true);
 
   React.useEffect(() => {
     axios.get("http://localhost:3001/tutors").then((res) => {
@@ -39,8 +39,8 @@ const ChatUi = () => {
   };
   return (
     <div className={styles.chatui}>
-      <button onClick={handletutor}>Chat as Tutor</button>
-      <button onClick={handlestudent}>Chat as Student</button>
+      <button className={styles.chatbtn} onClick={handletutor}>Chat as Tutor</button>
+      <button className={styles.chatbtn} onClick={handlestudent}>Chat as Student</button>
 
       {tdisplay && <TutorChat tutorName={tutorName} tutorChat={tutorChat} />}
       {sdisplay && (
