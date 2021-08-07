@@ -2,6 +2,7 @@ const express = require("express");
 const connect = require("./config/db");
 const socketio = require("socket.io");
 const http = require("http");
+const { adduser, removeuser, getuser, getuserinroom } = require("./users");
 
 const PORT = process.env.PORT || 3001;
 
@@ -14,16 +15,33 @@ const io = socketio(server);
 
 //chat
 io.on("connection", (socket) => {
-  console.log("we have new user");
+  socket.on("join", ({ tutorName, tutorChat }, callback) => {
+    const { error, user } = adduser({ id: socket.id, tutorName, tutorChat });
 
-  socket.on('join', ({tutorName, tutorChat}, callback) => {
-      console.log(tutorName,tutorChat)
+    //if (error) return callback(error);
 
-      const error = true
-       if ( error) {
-           callback({error:'error'})
-       }
-  })
+    socket.emit("message", {
+      user: "admin",
+      text: ` welcome to tutortown ${tutorName}`,
+    });
+    // socket.broadcast
+    //   .to(user.tutorChat)
+    //   .emit("message", { user: "admin", text: `${tutorName} has joined` });
+
+    // socket.join(user.tutorChat);
+    //callback();
+  });
+
+  socket.on("sendmessage", (message, callback) => {
+    const user = getuser(socket.id);
+
+    io.to(user.tutorChat).emit("message", {
+      user: user.tutorName,
+      text: message,
+    });
+
+    callback();
+  });
   socket.on("disconect", () => {
     console.log("user has left");
   });

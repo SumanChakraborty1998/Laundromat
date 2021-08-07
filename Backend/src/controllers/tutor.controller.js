@@ -27,6 +27,9 @@ router.post("/new", async (req, res) => {
 router.post("/auth/login", async (req, res) => {
     let tutor = await Tutor.findOne({
         $and: [{ email: req.body.email }, { password: req.body.password }],
+
+    });
+
     })
         .lean()
         .exec();
