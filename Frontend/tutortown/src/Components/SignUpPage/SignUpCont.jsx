@@ -372,7 +372,7 @@ function SignUpCont() {
                             </button>
                         </form>
                         <div className={styles.mandatory}>
-                            All feilds are mandatory *
+                            All fields are mandatory *
                         </div>
                     </div>
                 ) : qualification ? (
@@ -463,7 +463,7 @@ function SignUpCont() {
                             </button>
                         </form>
                         <div className={styles.mandatory}>
-                            All feilds are mandatory *
+                            All fields are mandatory *
                         </div>
                     </div>
                 ) : verification ? (
@@ -560,25 +560,25 @@ function SignUpCont() {
                                     style={{ width: "15px", height: "15px" }}
                                     onChange={handleCheck}
                                 />
-                                <div
+                                <a
                                     style={{
                                         fontSize: "12px",
                                         marginLeft: "3px",
                                         marginTop: "-0px",
-                                    }}
+                                    }} target="_blank" href="https://drive.google.com/file/d/1dsXxCJzSx9ELJrudZ6QVFuJz0dsEDpCy/view?usp=sharing"
                                 >
                                     Terms & Conditions
-                                </div>
+                                </a>
                             </div>
                             <button
                                 className={styles.continue_button}
-                                disabled={check}
+                                disabled={!check}
                             >
                                 Submit
                             </button>
                         </form>
                         <div className={styles.mandatory}>
-                            All feilds are mandatory *
+                            All fields are mandatory *
                         </div>
                     </div>
                 ) : done ? (
@@ -623,7 +623,7 @@ function SignUpCont() {
             ) : !done ? (
                 <div className={styles.tutor_basic_details}>
                     <div className={styles.mandatory}>
-                        All feilds are mandatory *
+                        All fields are mandatory *
                     </div>
                     <form
                         action=""
