@@ -1,0 +1,19 @@
+.chaticon {
+    width: 90%;
+    margin-left: 90%;
+    display: block;
+}
+.chaticon1{
+    margin-top: 423%;
+    width: 90%;
+    margin-left: 90%;
+    display: block;
+}
+.chatdiv {
+    top: 40%;
+
+    position: fixed;
+    height: 40px;
+    width: 5%;
+    margin-left: 87%;
+}

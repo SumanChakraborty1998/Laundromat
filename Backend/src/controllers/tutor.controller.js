@@ -4,7 +4,8 @@ const router = express.Router();
 const Tutor = require("../models/tutor.model");
 const Place = require("../models/place.model");
 const Subject = require("../models/subject.model");
-const Student = require("../models/student.model");
+const Price = require("../models/price.model");
+const Booking = require("../models/booking.model");
 
 router.get("/", async (req, res) => {
     let tutors = await Tutor.find().lean().exec();
@@ -31,24 +32,29 @@ router.post("/auth/login", async (req, res) => {
         .lean()
         .exec();
 
-    let students = await Student.find({
-        allocated_tutors: { $in: [tutor._id] },
-    })
+    // let students = await Student.find({
+    //     allocated_tutors: { $in: [tutor._id] },
+    // })
+    //     .lean()
+    //     .exec();
+
+    let bookings = await Booking.find({ tutor: tutor._id })
+        .populate("student")
         .lean()
         .exec();
 
     // console.log(students);
 
     // console.log(allocated_students);
-    return res.status(201).json({ data: { tutor, students } });
+    return res.status(201).json({ data: { tutor, bookings } });
 });
 
-//Find Tutors according to location and subject
-router.get("/:location/:subject", async (req, res) => {
-    let location = req.params.location.toLowerCase();
+//Find Tutors according to place and subject
+router.get("/:place/:subject", async (req, res) => {
+    let place = req.params.place.toLowerCase();
     let subject = req.params.subject.toLowerCase();
 
-    let place_found = await Place.find({ name: location }).lean().exec();
+    let place_found = await Place.find({ name: place }).lean().exec();
     let subject_found = await Subject.find({ name: subject }).lean().exec();
 
     // console.log(place_found, subject_found);
@@ -56,16 +62,18 @@ router.get("/:location/:subject", async (req, res) => {
     let tutors = await Tutor.find({
         $and: [
             { subject: subject_found[0]._id },
-            { location: place_found[0]._id },
+            { place: place_found[0]._id },
             { is_completed: true },
         ],
     })
         .lean()
         .exec();
 
-    return res
-        .status(201)
-        .json({ data: { place_found, subject_found, tutors } });
+    let prices = await Price.findOne({ place_id: place_found[0]._id })
+        .lean()
+        .exec();
+
+    return res.status(201).json([place_found, subject_found, tutors, prices]);
 });
 
 //Getting details of individual tutors

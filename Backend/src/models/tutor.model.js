@@ -21,9 +21,21 @@ const tutorSchema = new mongoose.Schema(
             ref: "subject",
             required: false,
         },
-        location: {
+        place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "place",
+            required: false,
+        },
+        current_address: {
+            type: String,
+            required: false,
+        },
+        permanent_address: {
+            type: String,
+            required: false,
+        },
+        is_agree_agreement: {
+            type: String,
             required: false,
         },
         password: {

@@ -1,0 +1,34 @@
+.display {
+    display: grid;
+    justify-content: space-around;
+    grid-template-columns: 25% 25% 25%;
+    row-gap: 50px;
+    /* column-gap: -200px; */
+}
+
+.tutorCard {
+    /* border: 2px solid red; */
+    padding: 30px;
+    font-size: 20px;
+}
+
+.tutorCard:hover {
+    background-color: #c79aae;
+}
+
+.bigFont {
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+.colorText {
+    color: #C51162;
+    font-weight: 700;
+    /* text-decoration: underline; */
+    line-height: 1.5;
+}
+
+.roundImg {
+    border: 2px solid #C51162;
+    border-radius: 50%;
+}

@@ -1,10 +1,53 @@
 const express = require("express");
 const connect = require("./config/db");
+const socketio = require("socket.io");
+const http = require("http");
+const { adduser, removeuser, getuser, getuserinroom } = require("./users");
 
 const PORT = process.env.PORT || 3001;
 
+const router = require("./router");
 const app = express();
 app.use(express.json());
+
+const server = http.createServer(app);
+const io = socketio(server);
+
+//chat
+io.on("connection", (socket) => {
+  socket.on("join", ({ tutorName, tutorChat }, callback) => {
+    const { error, user } = adduser({ id: socket.id, tutorName, tutorChat });
+
+    //if (error) return callback(error);
+
+    socket.emit("message", {
+      user: "admin",
+      text: ` welcome to tutortown ${tutorName}`,
+    });
+    // socket.broadcast
+    //   .to(user.tutorChat)
+    //   .emit("message", { user: "admin", text: `${tutorName} has joined` });
+
+    // socket.join(user.tutorChat);
+    //callback();
+  });
+
+  socket.on("sendmessage", (message, callback) => {
+    const user = getuser(socket.id);
+
+    io.to(user.tutorChat).emit("message", {
+      user: user.tutorName,
+      text: message,
+    });
+
+    callback();
+  });
+  socket.on("disconect", () => {
+    console.log("user has left");
+  });
+});
+
+app.use(router);
 
 const placesController = require("./controllers/place.controller");
 const subjectsController = require("./controllers/subject.controller");
@@ -21,11 +64,11 @@ app.use("/students", studentsController);
 app.use("/bookings", bookingsController);
 
 const start = async () => {
-    await connect();
+  await connect();
 
-    app.listen(PORT, async () => {
-        console.log(`Warriors are onboarded at ${PORT}...`);
-    });
+  server.listen(PORT, async () => {
+    console.log(`Warriors are onboarded at ${PORT}...`);
+  });
 };
 
 module.exports = start;

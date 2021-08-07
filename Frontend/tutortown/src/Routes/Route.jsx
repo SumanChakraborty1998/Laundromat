@@ -1,11 +1,15 @@
 import React from 'react';
+// import { Route, Switch } from 'react-router-dom';
 
-const Route = () => {
+
+const Routes = () => {
     return (
         <div>
+            
+                
             
         </div>
     );
 };
 
-export default Route;
+export default Routes;
