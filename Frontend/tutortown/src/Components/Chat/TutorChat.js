@@ -1,53 +1,76 @@
 import React from "react";
 import styles from "./ChatUi.module.css";
 import io from "socket.io-client";
-import send from '../Images/send.png';
+import ScrollToBottom from "react-scroll-to-bottom";
+import TextField from "@material-ui/core/TextField";
 
-let socket;
+const PORT = process.env.PORT || 3001;
+const socket = io.connect(`http://localhost:${PORT}`);
 
-const TutorChat = ({ tutorName, tutorChat }) => {
-  const [message, setMessage] = React.useState([]);
-  const [messages, setMessages] = React.useState([]);
-
-  const ENDPOINT = "http://localhost:3001";
-
-  React.useEffect(() => {
-    socket = io(ENDPOINT);
-
-    console.log(tutorName, tutorChat);
-    socket.emit("join", { tutorName, tutorChat });
-
-    // return () => {
-    //   socket.emit("disconnect");
-    //   socket.off();
-    // };
-  }, [ENDPOINT, tutorName]);
+const TutorChat = () => {
+  const [state, setState] = React.useState({ message: "", name: "" });
+  const [chat, setChat] = React.useState([]);
+  const socketRef = React.useRef();
 
   React.useEffect(() => {
-    socket.on("message", (message) => {
-      setMessages([...messages, message]);
+    socketRef.current = io.connect(`http://localhost:${PORT}`);
+    socketRef.current.on("message", ({ name, message }) => {
+      setChat([...chat, { name, message }]);
     });
-  }, [messages]);
+    return () => socketRef.current.disconnect();
+  }, [chat]);
 
-  const sendMessage = (e) => {
-    e.preventDefault();
-    if (message) {
-      socket.emit("sendmessage", message, () => setMessage(""));
-    }
+  const onTextChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
   };
 
-  console.log(message, messages);
+  const onMessageSubmit = (e) => {
+    const { name, message } = state;
+    socketRef.current.emit("message", { name, message });
+    e.preventDefault();
+    setState({ message: "", name });
+  };
+
+  const renderChat = () => {
+    return chat.map(({ name, message }, index) => (
+      <div className={styles.msgbox} key={index}>
+        <h3>
+          {name}: <span>{message}</span>
+        </h3>
+      </div>
+    ));
+  };
   return (
     <div className={styles.chat}>
-      {/* <h5>welcome, {tutorName}</h5> {tutorChat} */}
-      <input
-        className={styles.chatinp}
-        type="text"
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        onKeyPress={(e) => (e.key === "Enter" ? sendMessage(e) : null)}
-      />
-     <div className={styles.sendbtn}>Send</div>
+
+     {renderChat()}
+
+      <div className={styles.stick}>
+        <form onSubmit={onMessageSubmit}>
+          <div className={styles.disp}>
+          <div className="name-field">
+            <TextField
+              name="name"
+              onChange={(e) => onTextChange(e)}
+              value={state.name}
+              label="Name"
+              variant='outlined'
+            />
+          </div>
+          <div>
+            <TextField
+              name="message"
+              onChange={(e) => onTextChange(e)}
+              value={state.message}
+              id="outlined-multiline-static"
+              variant="outlined"
+              label="Message"
+            />
+          </div>
+          </div>
+          <button className={styles.sendbtn}>Send</button>
+        </form>
+      </div>
     </div>
   );
 };

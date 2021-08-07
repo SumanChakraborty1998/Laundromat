@@ -1,15 +1,13 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React from "react";
+import { Route, Switch } from "react-router-dom";
 
 
 const Routes = () => {
-    return (
-        <div>
-            
-                
-            
-        </div>
-    );
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default Routes;
