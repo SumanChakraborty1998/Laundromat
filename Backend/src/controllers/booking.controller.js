@@ -27,6 +27,7 @@ router.post("/new", async (req, res) => {
         { new: true },
     );
     let booking = await Booking.create(req.body);
+
     let bookings = await Booking.find({ student: req.body.student });
     return res
         .status(201)
