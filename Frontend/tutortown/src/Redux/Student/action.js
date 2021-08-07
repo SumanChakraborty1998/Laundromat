@@ -134,7 +134,8 @@ export const getTutorData = payload => dispatch => {
 
     return axios.get("http://localhost:3001/tutors/Delhi-East/mathematics", payload )
     .then(res => {
-        dispatch( getTutorSuccess(res.data.tutors) )
+        // console.log(res.data.tutors)
+        dispatch( getTutorSuccess(res.data) )
     })
     .catch(err=> {
         dispatch( getTutorFailure() )
