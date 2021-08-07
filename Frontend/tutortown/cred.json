@@ -1,0 +1,37 @@
+[
+  {
+    "_id": { "$oid": "610d932698254c4684d663d9" },
+    "skills": ["Map", "Engineering Mathematics"],
+    "is_completed": false,
+    "name": "Yadav Singh",
+    "mobile": 8988010086,
+    "email": "albert4@masaisschool.com",
+    "subject": { "$oid": "610d4004c384fa09dcfc8436" },
+    "password": "12345678900",
+    "age": 29,
+    "gender": "Male",
+    "aadhaar_number": "230567591243",
+    "aadhaar_image": "https://i.imgur.com/PZEQxNu.jpg",
+    "profile_photo": "https://i.imgur.com/RHf2IQ3.png",
+    "graduation_percentage": 74,
+    "linkedin": "https://www.linkedin.com/in/albseb/",
+    "reason": "Want to make the future of upcoming generations. I am passionate for teaching and programming as well",
+    "createdAt": { "$date": "2021-08-06T19:53:10.885Z" },
+    "updatedAt": { "$date": "2021-08-06T19:53:10.885Z" },
+    "place": { "$oid": "610d25e6771f892995d9b86e" }
+  },
+
+  {
+    "_id": { "$oid": "610d6fdc88073b2d941ff6ab" },
+    "free_credit": "0",
+    "name": "Ashwani Sahu", 
+    "mobile": 8918077766,
+    "email": "ashwani@gmail.com",
+    "currently_reading": "9-th",
+    "password": "1234567899",
+    "profile_photo": "https://ca.slack-edge.com/T01HN2NGR0E-U01J3295R7W-a071d3526336-512",
+    "createdAt": { "$date": "2021-08-06T17:22:36.565Z" },
+    "updatedAt": { "$date": "2021-08-07T07:54:22.172Z" },
+    "place": { "$oid": "610d25e6771f892995d9b86e" }
+  }
+]
