@@ -34,13 +34,13 @@ const studentSchema = new mongoose.Schema(
             type: String,
             required: false,
         },
-        allocated_tutors: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "tutor",
-                required: false,
-            },
-        ],
+        // allocated_tutors: [
+        //     {
+        //         type: mongoose.Schema.Types.ObjectId,
+        //         ref: "tutor",
+        //         required: false,
+        //     },
+        // ],
         free_credit: {
             type: String,
             required: false,

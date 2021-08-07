@@ -27,9 +27,6 @@ router.post("/new", async (req, res) => {
 router.post("/auth/login", async (req, res) => {
     let tutor = await Tutor.findOne({
         $and: [{ email: req.body.email }, { password: req.body.password }],
-
-    });
-
     })
         .lean()
         .exec();
@@ -66,9 +63,7 @@ router.get("/:location/:subject", async (req, res) => {
         .lean()
         .exec();
 
-    return res
-        .status(201)
-        .json({ data: { place_found, subject_found, tutors } });
+    return res.status(201).json([place_found, subject_found, tutors]);
 });
 
 //Getting details of individual tutors

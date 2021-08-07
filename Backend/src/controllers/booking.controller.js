@@ -4,7 +4,11 @@ const router = express.Router();
 const Booking = require("../models/booking.model");
 
 router.get("/", async (req, res) => {
-    let bookings = await Booking.find().lean().exec();
+    let bookings = await Booking.find()
+        // .populate("student")
+        .populate("tutor")
+        .lean()
+        .exec();
     // console.log("Reached", places);
     return res.status(200).json({ data: bookings });
 });
