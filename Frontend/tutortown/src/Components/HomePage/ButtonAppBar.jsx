@@ -36,7 +36,7 @@ export default function ButtonAppBar() {
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             {/* <MenuIcon /> */}
-            <img width="40px" src={logo} alt="" />
+            <img width="40px" style={{borderRadius: "50%"}} src={logo} alt="" />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             
