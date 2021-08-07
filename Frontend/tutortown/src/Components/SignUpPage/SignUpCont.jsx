@@ -204,7 +204,7 @@ function SignUpCont() {
 
     const handleSubmitTutorData = (e) => {
         e.preventDefault();
-        // dispatch(tutorRegister(fullTutorData));
+        // dispatch(tutorRegister(fullTutorData));  
         handleDone();
     }
 
@@ -478,7 +478,7 @@ function SignUpCont() {
                             <button
                                 className={styles.continue_button}
                                 disabled={
-                                    tutorQualificationDetails.description === ""
+                                    tutorQualificationDetails.reason === ""
                                 }
                             >
                                 Continue
