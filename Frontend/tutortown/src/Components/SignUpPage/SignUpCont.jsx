@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SignUpCont.module.css";
 import axios from "axios";
+import {useDispatch} from "react-redux"
+import { studentRegister, tutorRegister } from "../../Redux/SignUp/action";
+import { useHistory } from "react-router-dom";
 
 function SignUpCont() {
     const [tutor, setTutor] = useState(false);
@@ -10,6 +13,8 @@ function SignUpCont() {
     const BaseUrlImgur = "https://api.imgur.com/3/image";
     // const [uploading, setUploading] = useState(false);
     const [check, setCheck] = useState(false);
+    const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleCheck = (e) => {
         const { checked } = e.target;
@@ -22,10 +27,10 @@ function SignUpCont() {
     const [done, SetDone] = useState(false);
 
     const studentInitialPayload = {
-        full_name: "",
+        name: "",
         age: "",
-        current_class: "",
-        mobile_number: "",
+        currently_reading: "",
+        mobile: "",
         email: "",
         password: "",
         re_type: "",
@@ -33,10 +38,10 @@ function SignUpCont() {
     };
 
     const basicInitialPayload = {
-        full_name: "",
+        name: "",
         age: "",
         gender: "",
-        mobile_number: "",
+        mobile: "",
         email: "",
         subject: "",
         location: "",
@@ -46,29 +51,26 @@ function SignUpCont() {
 
     const qualificationInitialPayload = {
         degree: "",
-        marks: "",
+        graduation_percentage: "",
         experience: "",
         skills: "",
-        description: "",
+        reason: "",
     };
 
     const verificationInitialPayload = {
-        aadhar_number: "",
+        aadhaar_number: "",
         current_address: "",
         permanent_address: "",
-        profile_pic: "",
-        aadhar_pic: "",
+        profile_photo: "",
+        aadhaar_image: "",
     };
 
     const [studentData, setStudentData] = useState(studentInitialPayload);
-    const [tutorbasicDetails, setTutorBasicDetails] =
-        useState(basicInitialPayload);
-    const [tutorQualificationDetails, setTutorQualificationDetails] = useState(
-        qualificationInitialPayload,
-    );
-    const [tutorVerificationDetails, setTutorVerificationDetails] = useState(
-        verificationInitialPayload,
-    );
+    const [tutorbasicDetails, setTutorBasicDetails] =useState(basicInitialPayload);
+    const [tutorQualificationDetails, setTutorQualificationDetails] = useState(qualificationInitialPayload);
+    const [tutorVerificationDetails, setTutorVerificationDetails] = useState(verificationInitialPayload);
+
+    const [fullTutorData, setFullTutorData] = useState({});
 
     const handleStudentData = (e) => {
         const { name, value } = e.target;
@@ -128,8 +130,8 @@ function SignUpCont() {
         console.log(tutorQualificationDetails);
     };
 
-    const handleDone = (e) => {
-        e.preventDefault();
+    const handleDone = () => {
+        // e.preventDefault();
         setBasicDetails(false);
         SetQualification(false);
         setVerification(false);
@@ -156,7 +158,7 @@ function SignUpCont() {
             .then((res) => {
                 setTutorVerificationDetails({
                     ...tutorVerificationDetails,
-                    profile_pic: res.data.data.link,
+                    profile_photo: res.data.data.link,
                 });
                 console.log(tutorVerificationDetails);
             })
@@ -180,7 +182,7 @@ function SignUpCont() {
             .then((res) => {
                 setTutorVerificationDetails({
                     ...tutorVerificationDetails,
-                    aadhar_pic: res.data.data.link,
+                    aadhaar_image: res.data.data.link,
                 });
                 console.log(tutorVerificationDetails);
             })
@@ -190,7 +192,27 @@ function SignUpCont() {
         // .finally(() => setUploading(false));
     };
 
+    const handleRedirect = () => {
+        history.push("/login")
+    }
+
+    const handleSubmitStudentData = (e) => {
+        e.preventDefault();
+        // dispatch(studentRegister(studentData));
+        handleDone();
+    }
+
+    const handleSubmitTutorData = (e) => {
+        e.preventDefault();
+        // dispatch(tutorRegister(fullTutorData));
+        handleDone();
+    }
+
     // console.log(uploading);
+
+    useEffect(() => {
+        setFullTutorData({...tutorbasicDetails, ...tutorQualificationDetails, ...tutorVerificationDetails})
+    }, [tutorbasicDetails, tutorQualificationDetails, tutorVerificationDetails])
 
     return (
         <div className={styles.sign_up_cont}>
@@ -244,7 +266,7 @@ function SignUpCont() {
                                 <input
                                     type="text"
                                     placeholder="Enter Name"
-                                    name="full_name"
+                                    name="name"
                                     onChange={handleTutorBasicDetails}
                                 />
                                 <input
@@ -272,7 +294,7 @@ function SignUpCont() {
                                 <input
                                     type="number"
                                     placeholder="Mobile Number"
-                                    name="mobile_number"
+                                    name="mobile"
                                     onChange={handleTutorBasicDetails}
                                 />
                                 <input
@@ -285,8 +307,8 @@ function SignUpCont() {
                             <div className={styles.heading_s_l_p}>
                                 <div>Subject</div>
                                 <div>Location</div>
-                                <div>Passsword</div>
-                                <div>Re-enter Passsword</div>
+                                <div>Password</div>
+                                <div style={{marginLeft:"7px"}}>Re-enter Password</div>
                             </div>
                             <div className={styles.s_l_p_input}>
                                 <select
@@ -419,7 +441,7 @@ function SignUpCont() {
                                 <input
                                     type="number"
                                     placeholder="Percentage"
-                                    name="marks"
+                                    name="graduation_percentage"
                                     onChange={handleTutorQualificationDetails}
                                 />
                                 <select
@@ -449,7 +471,7 @@ function SignUpCont() {
                                 />
                                 <textarea
                                     type="text"
-                                    name="description"
+                                    name="reason"
                                     onChange={handleTutorQualificationDetails}
                                 />
                             </div>
@@ -494,7 +516,7 @@ function SignUpCont() {
                         <form
                             action=""
                             className={styles.form_main}
-                            onSubmit={handleDone}
+                            onSubmit={handleSubmitTutorData}
                         >
                             <div className={styles.heading_deg_marks_exp}>
                                 <div>Aadhar Number</div>
@@ -503,7 +525,7 @@ function SignUpCont() {
                                 <input
                                     type="number"
                                     placeholder="Enter aadhar number"
-                                    name="aadhar_number"
+                                    name="aadhaar_number"
                                     onChange={handleTutorVerificationDetails}
                                 />
                             </div>
@@ -611,7 +633,7 @@ function SignUpCont() {
                             </div>
                             <button
                                 className={styles.continue_button}
-                                onClick={handleDone}
+                                onClick={handleRedirect}
                             >
                                 Done
                             </button>
@@ -628,7 +650,7 @@ function SignUpCont() {
                     <form
                         action=""
                         className={styles.studen_form_main}
-                        onSubmit={handleDone}
+                        onSubmit={handleSubmitStudentData}
                     >
                         <div className={styles.heading_name_age_gender}>
                             <div>Full Name</div>
@@ -639,7 +661,7 @@ function SignUpCont() {
                             <input
                                 type="text"
                                 placeholder="Enter Name"
-                                name="full_name"
+                                name="name"
                                 onChange={handleStudentData}
                             />
                             <input
@@ -649,7 +671,7 @@ function SignUpCont() {
                                 onChange={handleStudentData}
                             />
                             <select
-                                name="current_class"
+                                name="currently_reading"
                                 onChange={handleStudentData}
                             >
                                 <option>Current Class</option>
@@ -671,7 +693,7 @@ function SignUpCont() {
                             <input
                                 type="number"
                                 placeholder="Mobile Number"
-                                name="mobile_number"
+                                name="mobile"
                                 onChange={handleStudentData}
                             />
                             <input
@@ -767,7 +789,7 @@ function SignUpCont() {
                     </div>
                     <button
                         className={styles.continue_button}
-                        onClick={handleDone}
+                        onClick={handleRedirect}
                     >
                         Done
                     </button>
