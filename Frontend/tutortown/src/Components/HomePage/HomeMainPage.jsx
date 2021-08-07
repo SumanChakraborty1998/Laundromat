@@ -1,4 +1,5 @@
 import React from 'react';
+import Join from '../JoinChat/Join';
 import AwardsAndRecognition from './AwardsAndRecognition';
 import ButtonAppBar from './ButtonAppBar';
 import { Footer } from './Footer';
@@ -13,6 +14,8 @@ const HomeMainPage = () => {
             < HomePageSlide1 />
             < ImageCarousel />
             < AwardsAndRecognition />
+            
+            <Join/>
             < Footer />
         </div>
     );

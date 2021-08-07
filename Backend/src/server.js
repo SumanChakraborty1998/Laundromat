@@ -1,10 +1,35 @@
 const express = require("express");
 const connect = require("./config/db");
+const socketio = require("socket.io");
+const http = require("http");
 
 const PORT = process.env.PORT || 3001;
 
+const router = require("./router");
 const app = express();
 app.use(express.json());
+
+const server = http.createServer(app);
+const io = socketio(server);
+
+//chat
+io.on("connection", (socket) => {
+  console.log("we have new user");
+
+  socket.on('join', ({tutorName, tutorChat}, callback) => {
+      console.log(tutorName,tutorChat)
+
+      const error = true
+       if ( error) {
+           callback({error:'error'})
+       }
+  })
+  socket.on("disconect", () => {
+    console.log("user has left");
+  });
+});
+
+app.use(router);
 
 const placesController = require("./controllers/place.controller");
 const subjectsController = require("./controllers/subject.controller");
@@ -21,11 +46,11 @@ app.use("/students", studentsController);
 app.use("/bookings", bookingsController);
 
 const start = async () => {
-    await connect();
+  await connect();
 
-    app.listen(PORT, async () => {
-        console.log(`Warriors are onboarded at ${PORT}...`);
-    });
+  server.listen(PORT, async () => {
+    console.log(`Warriors are onboarded at ${PORT}...`);
+  });
 };
 
 module.exports = start;
