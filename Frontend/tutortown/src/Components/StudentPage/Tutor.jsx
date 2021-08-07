@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTutorData } from '../../Redux/Student/action';
 import styles from "./Tutor.module.css"
@@ -43,6 +43,10 @@ const useStyles = makeStyles((theme) => ({
 
 const Tutor = () => {
     const classes = useStyles();
+
+    const [demoCount, setDemoCount] = useState(0)
+    const [canBook, setCanBook] = useState(false)
+
     const [state, setState] = React.useState({
         age: '',
         name: 'hai',
@@ -60,7 +64,7 @@ const Tutor = () => {
         [name]: event.target.value,
         });
     };
-    console.log(state.age, state.name);
+    // console.log(state.age, state.name);
 
     const handleChange2 = (event) => {
         const name = event.target.name;
@@ -69,18 +73,40 @@ const Tutor = () => {
         [name]: event.target.value,
         });
     };
-    console.log(state2.location, state2.name);
+    // console.log(state2.location, state2.name);
 
     const tutorData = useSelector(state=>state.tutor.tutorData)
     const dispatch = useDispatch()
+
+    // let demoCount=0
 
     const handleSearch = (subj, loc) => {
         dispatch( getTutorData(state.age, state2.location) )
     }
 
-    // useEffect(()=> {
-    //     dispatch( getTutorData() )
-    // }, [dispatch])
+    const handlePayNow = () => {
+
+    }
+
+    const handleBookDemo = () => {
+        setDemoCount(demoCount+1)
+        setCanBook(true)
+    }
+    
+    // console.log(demoCount);
+
+    
+
+    useEffect(() => {
+
+        // dispatch( handleBookDemo() )
+
+        if (canBook) {
+            setTimeout(() => {
+                setCanBook(false)
+            }, 2500);
+        }
+    }, [dispatch, canBook])
     
     // console.log();
 
@@ -161,14 +187,23 @@ const Tutor = () => {
                             <div className={styles.bigFont}>I'm <span className={styles.colorText} >{item.name}</span></div>
                             <div>{item.experience} Years of Teaching Experience</div>
                             <br />
-                            <Button variant="contained" color="secondary" size="large" disableElevation>
-                                LEARN WITH ME
+                            <Button onClick={demoCount<3 ? handleBookDemo : handlePayNow} variant="contained" color="secondary" size="large" disableElevation>
+                                {`${demoCount<3 ? "Book Demo Class" : "Pay Now"}`}
                             </Button>
                         </div>
                     ))
                     
                 }
             </div>
+
+            {
+                (demoCount<=3) && (canBook) &&
+                <div className={styles.bgCard}>
+                    <div className={styles.demoModalCard}>
+                        { (demoCount<3) ? `You have successfully booked a free demo class. You can book ${3-demoCount} more classes.` : `You have successfully booked a free demo class. This is your last demo class.` }
+                    </div>
+                </div>
+            }
         </div>
     );
 };
