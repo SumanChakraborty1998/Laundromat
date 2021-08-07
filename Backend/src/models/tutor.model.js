@@ -26,6 +26,18 @@ const tutorSchema = new mongoose.Schema(
             ref: "place",
             required: false,
         },
+        current_address: {
+            type: String,
+            required: false,
+        },
+        permanent_address: {
+            type: String,
+            required: false,
+        },
+        is_agree_agreement: {
+            type: String,
+            required: false,
+        },
         password: {
             type: String,
             required: true,

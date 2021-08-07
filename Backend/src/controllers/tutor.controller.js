@@ -4,7 +4,7 @@ const router = express.Router();
 const Tutor = require("../models/tutor.model");
 const Place = require("../models/place.model");
 const Subject = require("../models/subject.model");
-const Student = require("../models/student.model");
+const Price = require("../models/price.model");
 const Booking = require("../models/booking.model");
 
 router.get("/", async (req, res) => {
@@ -69,7 +69,11 @@ router.get("/:place/:subject", async (req, res) => {
         .lean()
         .exec();
 
-    return res.status(201).json([place_found, subject_found, tutors]);
+    let prices = await Price.findOne({ place_id: place_found[0]._id })
+        .lean()
+        .exec();
+
+    return res.status(201).json([place_found, subject_found, tutors, prices]);
 });
 
 //Getting details of individual tutors
