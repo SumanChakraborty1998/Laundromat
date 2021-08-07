@@ -1,50 +1,69 @@
-.chatui{
-    max-width: 450%;
-    min-width: 450%;
-    border: 1px solid black;
-    min-height:380px;
-    background-color: white;
-    color: blue;
-    margin-top: -80%;
-    margin-left: -340%;
+.chatui {
+  max-width: 500%;
+  min-width: 500%;
+  border: 1px solid black;
+  min-height: 450px;
+  background-color:rgb(213, 209, 209);
+  color: blue;
+  margin-top: -160%;
+  margin-left: -340%;
+  border-radius: 5px;
 }
 
-.chat 
-{
-    max-width: 99%;
-    min-width: 99%;
-    min-height: 340px;
-    max-height: 340px;
-    border: 2px solid blue;
-}
+.chat {
+  max-width: 99%;
+  min-width: 99%;
+  min-height: 300px;
+  max-height: 300px;
+  border: 1px solid black;
 
-.chatinp {
-    margin-top: 88%;
-    width: 84%;
-    margin-left: -15%;
-    max-height: 41px;
-    min-height: 41px;
 }
 
 .chatbtn {
-    width: 50%;
-    height: 35px;
-    border-radius: 0;
-    border: none;
-    border-right: 1px solid darkgrey;
-border-bottom: 1px solid darkgray;
-font-family: 'Quicksand', sans-serif;
-font-weight: bold;
+  width: 50%;
+  height: 35px;
+  border-radius: 0;
+  border: none;
+  border-right: 1px solid darkgrey;
+  border-bottom: 1px solid darkgray;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
 }
 
 .sendbtn {
-    margin-left: 84%;
-    font-size: 17px;
-    font-weight: bold;
-    margin-top: -13%;
-    color: white;
-    background-color: black;
-    height: 35px;
-    width: 16.5%;
-    padding-top: 3%;
+  font-size: 17px;
+  font-weight: bold;
+
+  color: white;
+  border: none;
+  background-color: #f50057;
+  height: 50px;
+  width: 95%;
+  padding-top: 1%;
+  margin-left: -2;
+  display: block;
+  border-radius: 5px;
+}
+.msgbox {
+    border: 1px solid black;
+}
+
+/* .chat {
+
+    overflow-y: scroll;
+    overflow-x: unset;
+} */
+
+.stick {
+  position: fixed;
+  margin-top:18.5%;
+}
+
+.message {
+}
+
+.disp {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-left: .5%;
 }
