@@ -21,9 +21,9 @@
 .chatinp {
     margin-top: 88%;
     width: 84%;
-    margin-left: -3%;
-    max-height: 380px;
-    min-height: 40px;
+    margin-left: -15%;
+    max-height: 41px;
+    min-height: 41px;
 }
 
 .chatbtn {
@@ -38,6 +38,13 @@ font-weight: bold;
 }
 
 .sendbtn {
-    margin-left: 4%;
-    width: 9%;
+    margin-left: 84%;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: -13%;
+    color: white;
+    background-color: black;
+    height: 35px;
+    width: 16.5%;
+    padding-top: 3%;
 }

@@ -1,23 +1,14 @@
 import React from "react";
 import styles from "./ChatUi.module.css";
 import io from "socket.io-client";
-import send from "../Images/send.png";
-import Icon from "@material-ui/core/Icon";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
-import { SendIcon } from "@material-ui/icons/Send";
+import send from '../Images/send.png';
 
 let socket;
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
 
 const TutorChat = ({ tutorName, tutorChat }) => {
   const [message, setMessage] = React.useState([]);
   const [messages, setMessages] = React.useState([]);
-  const classes = useStyles();
+
   const ENDPOINT = "http://localhost:3001";
 
   React.useEffect(() => {
@@ -56,12 +47,7 @@ const TutorChat = ({ tutorName, tutorChat }) => {
         onChange={(e) => setMessage(e.target.value)}
         onKeyPress={(e) => (e.key === "Enter" ? sendMessage(e) : null)}
       />
-      <Button
-        variant="contained"
-        color="primary"
-        className={classes.button}
-        startIcon={<SendIcon />}
-      ></Button>
+     <div className={styles.sendbtn}>Send</div>
     </div>
   );
 };
