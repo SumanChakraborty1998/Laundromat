@@ -6,6 +6,7 @@ import SignUpMain from "./../Components/SignUpPage/SignUpMain";
 import ButtonAppBar from "./../Components/HomePage/ButtonAppBar";
 import { Footer } from "../Components/HomePage/Footer";
 import { CheckOutMain } from "../Components/Payment/CheckOutMain";
+import LoginMain from "../Components/LoginPage/LoginMain";
 
 const Routes = () => {
     return (
@@ -25,6 +26,10 @@ const Routes = () => {
                     </Route>
                     <Route path="/admin/tutorTown/authenticated" exact>
                         <Admin />
+                    </Route>
+
+                    <Route path="/login" exact>
+                        <LoginMain />
                     </Route>
                 </Switch>
             </div>
