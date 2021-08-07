@@ -21,7 +21,7 @@ const tutorSchema = new mongoose.Schema(
             ref: "subject",
             required: false,
         },
-        location: {
+        place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "place",
             required: false,

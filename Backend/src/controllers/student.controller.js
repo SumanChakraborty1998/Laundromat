@@ -24,6 +24,7 @@ router.post("/auth/login", async (req, res) => {
     let student = await Student.findOne({
         $and: [{ email: req.body.email }, { password: req.body.password }],
     })
+        .populate("place")
         .lean()
         .exec();
 
@@ -41,16 +42,16 @@ router.post("/auth/login", async (req, res) => {
     // }
 
     // console.log(typeof student._id);
-    let bookings = await Booking.find({ booked_by_student: student._id })
+    let bookings = await Booking.find({ student: student._id })
         .populate("tutor")
         .lean()
         .exec();
 
     // console.log(bookings.length);
-    student = {
-        ...student,
-        free_credit: student.free_credit - bookings.length,
-    };
+    // student = {
+    //     ...student,
+    //     free_credit: student.free_credit - bookings.length,
+    // };
 
     return res.status(201).json({ data: { student, bookings } });
 });

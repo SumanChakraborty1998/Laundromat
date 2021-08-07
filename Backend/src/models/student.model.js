@@ -16,7 +16,7 @@ const studentSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        location: {
+        place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "place",
             required: false,
@@ -42,7 +42,7 @@ const studentSchema = new mongoose.Schema(
         //     },
         // ],
         free_credit: {
-            type: String,
+            type: Number,
             required: false,
             default: 3,
         },
