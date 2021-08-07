@@ -213,7 +213,7 @@ function SignUpCont() {
                         <input type="file"/>
                         <input type="file"/>
                     </div>
-                    <button className={styles.continue_button} onClick={handleDone}>Continue</button>
+                    <button className={styles.continue_button} onClick={handleDone}>Submit</button>
                 </form>
             </div> : done ? <div className={styles.tutor_basic_details}>
                 <div className={styles.process_bar_main}>
@@ -240,7 +240,77 @@ function SignUpCont() {
                     </div>
                     <button className={styles.continue_button} onClick={handleDone}>Done</button>
                 </div>
-            </div> : "" : ""}
+            </div> : "" : !done ? <div className={styles.tutor_basic_details}>
+            <form action="" className={styles.studen_form_main}>
+                    <div className={styles.heading_name_age_gender}>
+                        <div>Full Name</div>
+                        <div>Age</div>
+                        <div>Current Class</div>
+                    </div>
+                    <div className={styles.heading_n_a_g_input}>
+                        <input type="text" placeholder="Enter Name"/>
+                        <input type="number" placeholder="Enter Age"/>
+                        <select name="" id="">
+                            <option value="">Current Class</option>
+                            <option value="">5th</option>
+                            <option value="">6th</option>
+                            <option value="">7th</option>
+                            <option value="">8th</option>
+                            <option value="">9th</option>
+                            <option value="">10th</option>
+                            <option value="">11th</option>
+                            <option value="">12th</option>
+                        </select>
+                    </div>
+                    <div className={styles.heading_number_mail}>
+                        <div>Mobile Number</div>
+                        <div>Email</div>
+                    </div>
+                    <div className={styles.mobile_email_input}>
+                    <input type="number" placeholder="Mobile Number"/>
+                        <input type="email" placeholder="xyz@gmail.com"/>
+                    </div>
+                    <div className={styles.heading_s_l_p}>
+                        <div>Subject</div>
+                        <div>Location</div>
+                        <div>Passsword</div>
+                        <div>Re-enter Passsword</div>
+                    </div>
+                    <div className={styles.s_l_p_input}>
+                        <select name="" id="">
+                            <option value="">Select Subject</option>
+                            <option value="">English</option>
+                            <option value="">Computer Science</option>
+                            <option value="">Math</option>
+                            <option value="">Science</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Select Location</option>
+                            <option value="">Delhi East</option>
+                            <option value="">Delhi South</option>
+                            <option value="">Delhi North</option>
+                            <option value="">Noida</option>
+                        </select>
+                        <input type="password" name="" id="" placeholder="Enter Password"/>
+                        <input type="password" name="" placeholder="Re-enter Password"/> 
+                    </div>
+                    <div className={styles.heading_add}>
+                        Address
+                    </div>
+                    <div className={styles.add_input}>
+                        <textarea name="" id=""></textarea>
+                    </div>
+                    <button className={styles.continue_button} onClick={handleDone}>Submit</button>
+                 </form>
+                </div> : <div action="" className={styles.form_main} style={{marginTop:"72px"}}>
+                    <div className={styles.done_icon}>
+                        <img src="https://i.imgur.com/C4jmsG5.png" alt="" style={{width:"100%"}}/>
+                    </div>
+                    <div className={styles.succesfull}>
+                        Successfully Registered!
+                    </div>
+                    <button className={styles.continue_button} onClick={handleDone}>Done</button>
+                </div>}
         </div>
     );
 }
