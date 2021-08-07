@@ -5,6 +5,7 @@ import HomeMainPage from "./../Components/HomePage/HomeMainPage";
 import SignUpMain from "./../Components/SignUpPage/SignUpMain";
 import ButtonAppBar from "./../Components/HomePage/ButtonAppBar";
 import { Footer } from "../Components/HomePage/Footer";
+import { CheckOutMain } from "../Components/Payment/CheckOutMain";
 
 const Routes = () => {
     return (
@@ -17,6 +18,10 @@ const Routes = () => {
                     </Route>
                     <Route path="/signup" exact>
                         <SignUpMain />
+                    </Route>
+
+                    <Route path="/student/booking/payment" exact>
+                        <CheckOutMain />
                     </Route>
                     <Route path="/admin/tutorTown/authenticated" exact>
                         <Admin />
