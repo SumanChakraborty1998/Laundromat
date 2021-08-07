@@ -7,7 +7,7 @@ const bookingSchema = new mongoose.Schema(
             ref: "tutor",
             required: true,
         },
-        booked_by_student: {
+        student: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "student",
             required: true,
