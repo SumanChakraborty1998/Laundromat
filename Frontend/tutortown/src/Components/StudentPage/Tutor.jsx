@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTutorData } from '../../Redux/Student/action';
+import { getTutorData, postTutorData } from '../../Redux/Student/action';
 import styles from "./Tutor.module.css"
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
@@ -45,6 +45,8 @@ const Tutor = () => {
     const classes = useStyles();
 
     const [demoCount, setDemoCount] = useState(0)
+    const [rowCount, setRowCount] = useState(0)
+
     const [canBook, setCanBook] = useState(false)
 
     const [state, setState] = React.useState({
@@ -76,6 +78,10 @@ const Tutor = () => {
     // console.log(state2.location, state2.name);
 
     const tutorData = useSelector(state=>state.tutor.tutorData)
+    const place = useSelector(state=>state.tutor.place)
+    const student = useSelector(state=>state.tutor.student)
+    const subject = useSelector(state=>state.tutor.subject)
+
     const dispatch = useDispatch()
 
     // let demoCount=0
@@ -88,12 +94,23 @@ const Tutor = () => {
 
     }
 
-    const handleBookDemo = () => {
-        setDemoCount(demoCount+1)
+    const handleBookDemo = (tutor) => {
+        // setDemoCount(demoCount+1)
         setCanBook(true)
+        setRowCount(rowCount+1)
+
+        const payload = {
+            tutor,
+            subject,
+            student,
+            place
+        }
+
+        dispatch( postTutorData(payload) )
     }
     
     // console.log(demoCount);
+    // console.log(rowCount);
 
     
 
@@ -101,11 +118,11 @@ const Tutor = () => {
 
         // dispatch( handleBookDemo() )
 
-        if (canBook) {
-            setTimeout(() => {
-                setCanBook(false)
-            }, 2500);
-        }
+        // if (canBook) {
+        //     setTimeout(() => {
+        //         setCanBook(false)
+        //     }, 2500);
+        // }
     }, [dispatch, canBook])
     
     // console.log();
@@ -120,6 +137,72 @@ const Tutor = () => {
     return (
         <div>
             <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <div>
+                <div className={styles.dashMainCont} >
+
+                    <div className={styles.dashHeading}>
+                        <div>ID</div>
+                        <div>SUBJECT NAME</div>
+                        <div>TUTOR</div>
+                        <div>PLACE</div>
+                        <div>TYPE</div>
+                    </div>
+
+                    {
+                        (rowCount>=1) &&
+                        <div className={styles.dashRows}>
+                            <div>1</div>
+                            <div>Mathematics</div>
+                            <div>Nrupul Dev</div>
+                            <div>Delhi-East</div>
+                            <div>Free</div>
+                        </div>
+                    }
+                    <hr />
+
+                    {
+                        (rowCount>=2) &&
+                        <div className={styles.dashRows}>
+                            <div>2</div>
+                            <div>Mathematics</div>
+                            <div>Prateek Shukla</div>
+                            <div>Delhi-East</div>
+                            <div>Free</div>
+                        </div>
+                    }
+                    <hr />
+
+                    {
+                        (rowCount>=3) &&
+                        <div className={styles.dashRows}>
+                            <div>3</div>
+                            <div>Mathematics</div>
+                            <div>Yogesh Bhat</div>
+                            <div>Delhi-East</div>
+                            <div>Free</div>
+                        </div>
+                    }
+                    <hr />
+
+                    {
+                        (rowCount>=4) &&
+                        <div className={styles.dashRows}>
+                            <div>4</div>
+                            <div>Mathematics</div>
+                            <div>Yogesh Bhat</div>
+                            <div>Delhi-East</div>
+                            <div>Paid</div>
+                        </div>
+                    }
+                    <hr />
+
+                </div>
+            </div>
 
             <form className={classes.root} noValidate autoComplete="off">
                 {/* <TextField id="outlined-basic" label="Subject" color="secondary" variant="outlined" />
@@ -187,23 +270,25 @@ const Tutor = () => {
                             <div className={styles.bigFont}>I'm <span className={styles.colorText} >{item.name}</span></div>
                             <div>{item.experience} Years of Teaching Experience</div>
                             <br />
-                            <Button onClick={demoCount<3 ? handleBookDemo : handlePayNow} variant="contained" color="secondary" size="large" disableElevation>
-                                {`${demoCount<3 ? "Book Demo Class" : "Pay Now"}`}
+                            <Button onClick={()=>handleBookDemo(item._id) } variant="contained" color="secondary" size="large" disableElevation>
+                                Free Trial
+                            </Button> {" "}
+                            <Button onClick={handlePayNow} variant="contained" color="secondary" size="large" disableElevation>
+                                Proceed To Pay
                             </Button>
                         </div>
                     ))
-                    
                 }
             </div>
 
-            {
+            {/* {
                 (demoCount<=3) && (canBook) &&
                 <div className={styles.bgCard}>
                     <div className={styles.demoModalCard}>
                         { (demoCount<3) ? `You have successfully booked a free demo class. You can book ${3-demoCount} more classes.` : `You have successfully booked a free demo class. This is your last demo class.` }
                     </div>
                 </div>
-            }
+            } */}
         </div>
     );
 };
