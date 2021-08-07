@@ -44,13 +44,16 @@ export const tutorReducer = (state=initState, {type, payload}) => {
         }    
         
         case GET_TUTOR_SUCCESS :
-        const updated = []
-        for (let i=payload.length-1; i>=0; i--) {
-            updated.push(payload[i])
-        }
+        // const updated = []
+        // console.log(payload.data.tutors, "bef");
+        // for (let i=payload.data.tutors.length-1; i>=0; i--) {
+        //     console.log(payload, "after");
+
+        //     updated.push(payload[i])
+        // }
         return {
             ...state,
-            tutorData: updated,
+            tutorData: payload,
             isLoading: false,
             isError: false,
             isSuccess: true
