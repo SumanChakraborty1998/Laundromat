@@ -8,7 +8,6 @@ const Student = require("../models/student.model");
 
 router.get("/", async (req, res) => {
     let tutors = await Tutor.find().lean().exec();
-    // console.log("Reached", places);
     return res.status(200).json({ data: tutors });
 });
 
@@ -28,7 +27,12 @@ router.post("/new", async (req, res) => {
 router.post("/auth/login", async (req, res) => {
     let tutor = await Tutor.findOne({
         $and: [{ email: req.body.email }, { password: req.body.password }],
+
     });
+
+    })
+        .lean()
+        .exec();
 
     let students = await Student.find({
         allocated_tutors: { $in: [tutor._id] },
