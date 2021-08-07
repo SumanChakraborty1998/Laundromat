@@ -9,6 +9,12 @@ function SignUpCont() {
     const ImageRef2 = React.useRef(null);
     const BaseUrlImgur = "https://api.imgur.com/3/image";
     const [uploading, setUploading] = useState(false);
+    const [check, setCheck] = useState(false);
+
+    const handleCheck = (e) => {
+        const {checked} = e.target
+        setCheck(checked);
+    }
 
 
     const [basicDetails, setBasicDetails] = useState(true);
@@ -347,7 +353,11 @@ function SignUpCont() {
                         <input type="file" ref={ImageRef} onChange={handleImageProfilePicUpload} />
                         <input type="file" ref={ImageRef2} onChange={handleImageAadharPicUpload} />
                     </div>
-                    <button className={styles.continue_button} disabled={tutorVerificationDetails.aadhar_pic === ""}>Submit</button>
+                    <div style={{position:"absolute", display:"flex", marginTop:"-10px"}}>
+                        <input type="checkbox" name="terms" style={{width:"15px", height:"15px"}} onChange={handleCheck}/>
+                        <div style={{fontSize:"12px", marginLeft:"3px", marginTop:"-0px"}}>Terms & Conditions</div>
+                    </div>
+                    <button className={styles.continue_button} disabled={check}>Submit</button>
                 </form>
                 <div className={styles.mandatory}>All feilds are mandatory *</div>
             </div> : done ? <div className={styles.tutor_basic_details}>
