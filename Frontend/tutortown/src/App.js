@@ -7,8 +7,8 @@ import StudentMainPage from './Components/StudentPage/StudentMainPage';
 function App() {
   return (
     <div className="App">
-      < HomeMainPage />
-      <Routes/>
+      {/* < HomeMainPage /> */}
+      {/* <Routes/> */}
       < StudentMainPage />
     </div>
   );

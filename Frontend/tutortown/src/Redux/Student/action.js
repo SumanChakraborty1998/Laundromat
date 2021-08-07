@@ -129,12 +129,13 @@ export const patchTutorFailure = (err) => {
 //     })
 // }
 
-export const getTutorData = payload => dispatch => {
+export const getTutorData = (subj, loc, payload) => dispatch => {
     dispatch( getTutorRequest() )
 
-    return axios.get("http://localhost:3001/tutors/Delhi-East/mathematics", payload )
+    return axios.get(`http://localhost:3001/tutors/${loc}/${subj}`, payload )
     .then(res => {
-        dispatch( getTutorSuccess(res.data.tutors) )
+        // console.log(res.data.tutors)
+        dispatch( getTutorSuccess(res.data) )
     })
     .catch(err=> {
         dispatch( getTutorFailure() )
