@@ -1,11 +1,14 @@
 import { applyMiddleware, combineReducers, createStore } from "redux"
 import { compose } from "redux"
 import thunk from "redux-thunk"
+import { loginReducer } from "./Login/reducer"
 import { tutorReducer } from "./Student/reducer"
+
 
 
 const rootreducer = combineReducers({
     tutor:tutorReducer,
+    loginred:loginReducer,
 })
 
 const store = createStore(rootreducer, 
