@@ -31,23 +31,23 @@ const TutorChat = () => {
     setState({ message: "", name });
   };
 
-  const renderChat = () => {
-    return chat.map(({ name, message }, index) => (
-      <div className={styles.msgbox} key={index}>
-        <h3>
-          {name}: <span>{message}</span>
-        </h3>
-      </div>
-    ));
-  };
+ 
   return (
     <div className={styles.chat}>
-      {renderChat()}
-
+      <div className={styles.msgbox}> 
+      {chat.map(({ name, message }, index) => (
+      
+      <h3 className={styles.content}>
+        <p className={styles.nam}>{name}: </p>
+        <span className={styles.messag}>{message}</span>
+      </h3>
+    
+  ))}
+      </div>
       <div className={styles.stick}>
         <form onSubmit={onMessageSubmit}>
           <div className={styles.disp}>
-            <div className="name-field">
+            <div className={styles.name}>
               <TextField
                 name="name"
                 onChange={(e) => onTextChange(e)}
@@ -56,7 +56,7 @@ const TutorChat = () => {
                 variant="outlined"
               />
             </div>
-            <div>
+            <div className={styles.mes}>
               <TextField
                 name="message"
                 onChange={(e) => onTextChange(e)}
@@ -64,6 +64,7 @@ const TutorChat = () => {
                 id="outlined-multiline-static"
                 variant="outlined"
                 label="Message"
+
               />
             </div>
           </div>

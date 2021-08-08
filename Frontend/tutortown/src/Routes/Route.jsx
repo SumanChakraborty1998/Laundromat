@@ -9,33 +9,33 @@ import { CheckOutMain } from "../Components/Payment/CheckOutMain";
 import LoginMain from "../Components/LoginPage/LoginMain";
 
 const Routes = () => {
-    return (
-        <>
-            <ButtonAppBar />
-            <div>
-                <Switch>
-                    <Route path="/" exact>
-                        <HomeMainPage />
-                    </Route>
-                    <Route path="/signup" exact>
-                        <SignUpMain />
-                    </Route>
+  return (
+    <>
+      <ButtonAppBar />
+      <div>
+        <Switch>
+          <Route path="/" exact>
+            <HomeMainPage />
+          </Route>
+          <Route path="/signup" exact>
+            <SignUpMain />
+          </Route>
 
-                    <Route path="/student/booking/payment" exact>
-                        <CheckOutMain />
-                    </Route>
-                    <Route path="/admin/tutorTown/authenticated" exact>
-                        <Admin />
-                    </Route>
+          <Route path="/student/booking/payment" exact>
+            <CheckOutMain />
+          </Route>
+          <Route path="/admin/tutorTown/authenticated" exact>
+            <Admin />
+          </Route>
 
-                    <Route path="/login" exact>
-                        <LoginMain />
-                    </Route>
-                </Switch>
-            </div>
-            <Footer />
-        </>
-    );
+          <Route path="/login" exact>
+            <LoginMain />
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Routes;
