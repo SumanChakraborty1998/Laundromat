@@ -43,7 +43,7 @@ function SignUpCont() {
         gender: "",
         mobile: "",
         email: "",
-        subject: "",
+        subjects: "",
         location: "",
         password: "",
         re_type: "",
@@ -204,7 +204,8 @@ function SignUpCont() {
 
     const handleSubmitTutorData = (e) => {
         e.preventDefault();
-        dispatch(tutorRegister(fullTutorData));  
+        dispatch(tutorRegister(fullTutorData));
+        console.log(fullTutorData);
         handleDone();
     }
 
@@ -312,7 +313,7 @@ function SignUpCont() {
                             </div>
                             <div className={styles.s_l_p_input}>
                                 <select
-                                    name="subject"
+                                    name="subjects"
                                     onChange={handleTutorBasicDetails}
                                 >
                                     <option>Select Subject</option>
@@ -442,7 +443,9 @@ function SignUpCont() {
                                     type="number"
                                     placeholder="Percentage"
                                     name="graduation_percentage"
+                                    value={tutorQualificationDetails.graduation_percentage}
                                     onChange={handleTutorQualificationDetails}
+                                    maxLength="2"
                                 />
                                 <select
                                     name="experience"

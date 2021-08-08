@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
 router.post("/new", async (req, res) => {
     let no_of_entries = Object.keys(req.body).length;
     let body = { ...req.body, is_completed: false };
-
+    console.log("Shanoor")
     // if (no_of_entries == 16) {
     //     body = { ...body, is_completed: true };
     // }
