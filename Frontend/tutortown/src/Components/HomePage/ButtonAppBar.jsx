@@ -46,7 +46,12 @@ export default function ButtonAppBar() {
                         aria-label="menu"
                     >
                         {/* <MenuIcon /> */}
-                        <img width="40px" src={logo} alt="" />
+                        <img
+                            width="40px"
+                            src={logo}
+                            alt=""
+                            onClick={() => history.push("/")}
+                        />
                     </IconButton>
                     <Typography
                         variant="h6"
@@ -62,7 +67,11 @@ export default function ButtonAppBar() {
                     >
                         Sign up
                     </Button>
-                    <Button className={classes.margin} color="inherit">
+                    <Button
+                        className={classes.margin}
+                        color="inherit"
+                        onClick={() => handleUrlChange("/login")}
+                    >
                         Login
                     </Button>
                 </Toolbar>

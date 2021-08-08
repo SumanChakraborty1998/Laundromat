@@ -30,7 +30,20 @@ const studentSchema = new mongoose.Schema(
             required: true,
             minLength: 8,
         },
+        re_type: {
+            type: String,
+            required: false,
+            minLength: 8,
+        },
+        age: {
+            type: Number,
+            required: false,
+        },
         profile_photo: {
+            type: String,
+            required: false,
+        },
+        address: {
             type: String,
             required: false,
         },

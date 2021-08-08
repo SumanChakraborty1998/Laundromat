@@ -22,14 +22,14 @@
 }
 
 .colorText {
-    color: #C51162;
+    color: #c51162;
     font-weight: 700;
     /* text-decoration: underline; */
     line-height: 1.5;
 }
 
 .roundImg {
-    border: 2px solid #C51162;
+    border: 2px solid #c51162;
     border-radius: 50%;
 }
 
@@ -46,7 +46,7 @@
     /* right: 560px; */
     margin-left: 550px;
     padding: 50px;
-    border-radius: 10px; 
+    border-radius: 10px;
     /* color: white; */
     font-size: 26px;
     opacity: 1;
@@ -74,10 +74,11 @@
     height: 40px;
     background-color: #262626;
     padding: 20px 0px;
-    color: #FCD21C;
+    color: #fcd21c;
     display: grid;
-    grid-template-columns: 10% 25% 25% 20% 20%;
+    /* grid-template-columns: 25% 25% 20% 20%; */
     /* justify-content: space-around; */
+    grid-template-columns: 10% 30% 35% 25%;
     font-size: 24px;
     font-weight: 600;
 }
@@ -85,11 +86,11 @@
 .dashRows {
     width: 100%;
     height: 40px;
-    background-color: #FCD21C;
+    background-color: #fcd21c;
     padding: 20px 0px;
     color: #262626;
     display: grid;
-    grid-template-columns: 10% 25% 25% 20% 20%;
+    grid-template-columns: 10% 30% 35% 25%;
     /* justify-content: space-around; */
     font-size: 24px;
     font-weight: 600;

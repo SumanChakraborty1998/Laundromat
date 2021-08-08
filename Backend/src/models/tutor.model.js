@@ -26,6 +26,10 @@ const tutorSchema = new mongoose.Schema(
             ref: "place",
             required: false,
         },
+        location: {
+            type: String,
+            required: false,
+        },
         current_address: {
             type: String,
             required: false,
@@ -42,6 +46,10 @@ const tutorSchema = new mongoose.Schema(
             type: String,
             required: true,
             minLength: 8,
+        },
+        re_type: {
+            type: String,
+            required: false,
         },
         age: {
             type: Number,
@@ -66,6 +74,10 @@ const tutorSchema = new mongoose.Schema(
         },
         graduation_percentage: {
             type: Number,
+            required: false,
+        },
+        qualification: {
+            type: String,
             required: false,
         },
         experience: {
