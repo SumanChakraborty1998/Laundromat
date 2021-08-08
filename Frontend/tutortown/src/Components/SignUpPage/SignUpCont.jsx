@@ -269,12 +269,14 @@ function SignUpCont() {
                                     placeholder="Enter Name"
                                     name="name"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                                 <input
                                     type="number"
                                     placeholder="Enter Age"
                                     name="age"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                                 <select
                                     name="gender"
@@ -297,12 +299,14 @@ function SignUpCont() {
                                     placeholder="Mobile Number"
                                     name="mobile"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                                 <input
                                     type="email"
                                     placeholder="xyz@gmail.com"
                                     name="email"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                             </div>
                             <div className={styles.heading_s_l_p}>
@@ -338,12 +342,14 @@ function SignUpCont() {
                                     id=""
                                     placeholder="Enter Password"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                                 <input
                                     type="password"
                                     name="re_type"
                                     placeholder="Re-enter Password"
                                     onChange={handleTutorBasicDetails}
+                                    required
                                 />
                                 {tutorbasicDetails.password ===
                                     tutorbasicDetails.re_type &&
@@ -445,7 +451,8 @@ function SignUpCont() {
                                     name="graduation_percentage"
                                     value={tutorQualificationDetails.graduation_percentage}
                                     onChange={handleTutorQualificationDetails}
-                                    maxLength="2"
+                                    // maxength="2"
+                                    required
                                 />
                                 <select
                                     name="experience"
@@ -545,6 +552,7 @@ function SignUpCont() {
                                     value={
                                         tutorVerificationDetails.current_address
                                     }
+                                    required
                                 />
                                 <textarea
                                     type="text"
@@ -554,6 +562,7 @@ function SignUpCont() {
                                     value={
                                         tutorVerificationDetails.permanent_address
                                     }
+                                    required
                                 />
                             </div>
                             <div className={styles.heading_files}>
@@ -565,11 +574,13 @@ function SignUpCont() {
                                     type="file"
                                     ref={ImageRef}
                                     onChange={handleImageProfilePicUpload}
+                                    required
                                 />
                                 <input
                                     type="file"
                                     ref={ImageRef2}
                                     onChange={handleImageAadharPicUpload}
+                                    required
                                 />
                             </div>
                             <div
@@ -584,6 +595,7 @@ function SignUpCont() {
                                     name="terms"
                                     style={{ width: "15px", height: "15px" }}
                                     onChange={handleCheck}
+                                    required
                                 />
                                 <a
                                     style={{
@@ -666,12 +678,14 @@ function SignUpCont() {
                                 placeholder="Enter Name"
                                 name="name"
                                 onChange={handleStudentData}
+                                required
                             />
                             <input
                                 type="number"
                                 placeholder="Enter Age"
                                 name="age"
                                 onChange={handleStudentData}
+                                required
                             />
                             <select
                                 name="currently_reading"
@@ -698,12 +712,14 @@ function SignUpCont() {
                                 placeholder="Mobile Number"
                                 name="mobile"
                                 onChange={handleStudentData}
+                                required
                             />
                             <input
                                 type="email"
                                 placeholder="xyz@gmail.com"
                                 name="email"
                                 onChange={handleStudentData}
+                                required
                             />
                         </div>
                         <div className={styles.heading_add}>Address</div>
@@ -711,6 +727,7 @@ function SignUpCont() {
                             <textarea
                                 name="address"
                                 onChange={handleStudentData}
+                                required
                             ></textarea>
                         </div>
                         <div className={styles.heading_student_password}>
@@ -753,12 +770,14 @@ function SignUpCont() {
                                 name="password"
                                 placeholder="Enter Password"
                                 onChange={handleStudentData}
+                                required
                             />
                             <input
                                 type="password"
                                 name="re_type"
                                 placeholder="Re-enter Password"
                                 onChange={handleStudentData}
+                                required
                             />
                         </div>
                         <button
