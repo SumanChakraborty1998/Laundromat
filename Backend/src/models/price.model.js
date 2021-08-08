@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const priceSchema = new mongoose.Schema(
     {
-        place_id: {
+        place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "place",
             required: true,
         },
-        math: { type: Number, required: true },
+        mathematics: { type: Number, required: true },
         science: { type: Number, required: true },
         english: { type: Number, required: true },
         arts: { type: Number, required: true },

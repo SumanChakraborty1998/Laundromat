@@ -18,6 +18,7 @@ router.post("/new", async (req, res) => {
     let student = await Student.findOne({ _id: req.body.student })
         .lean()
         .exec();
+
     let update_student = await Student.findByIdAndUpdate(
         student._id,
         {
@@ -26,7 +27,11 @@ router.post("/new", async (req, res) => {
         { new: true },
     );
     let booking = await Booking.create(req.body);
-    return res.status(201).json({ data: { booking, update_student } });
+
+    let bookings = await Booking.find({ student: req.body.student });
+    return res
+        .status(201)
+        .json({ data: { booking, update_student, bookings } });
 });
 
 module.exports = router;

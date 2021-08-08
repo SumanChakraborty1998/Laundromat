@@ -77,18 +77,19 @@ export const patchTutorFailure = (err) => {
     }
 }
 
-// export const postTutorData = payload => dispatch => {
-//     dispatch( postTutorRequest() )
+export const postTutorData = payload => dispatch => {
+    dispatch( postTutorRequest() )
 
-//     return axios.post("https://masai-project.herokuapp.com/bag", payload )
-//     .then(res => {
-//         dispatch( postTutorSuccess() )
-//         dispatch( getTutorData() )
-//     })
-//     .catch(err=> {
-//         dispatch( postTutorFailure() )
-//     })
-// }
+    return axios.post("http://localhost:3001/bookings/new", payload )
+    .then(res => {
+        // dispatch( postTutorSuccess() )
+        // dispatch( getTutorData() )
+        console.log(res);
+    })
+    .catch(err=> {
+        dispatch( postTutorFailure() )
+    })
+}
 
 // export const patchTutorData = (clickedId, isQtySame) => dispatch => {
 //     dispatch( patchTutorRequest() )
