@@ -141,6 +141,7 @@ const Tutor = () => {
     // const handlePayNow = () => {};
 
     const handleRender = (id) => {
+        // alert("thissdknfdghjdgfhf")
         axios
             .get(`http://localhost:3001/bookings/${id}`)
             .then((res) => setOwnBookings(res.data.data));
@@ -153,11 +154,11 @@ const Tutor = () => {
         const payload = {
             tutor,
             subject: "610d4004c384fa09dcfc8436",
-            student: student_data?.student?._id,
-            place: student_data?.student?.place?._id,
+            student: "610d6a0488073b2d941ff6aa",
+            place: "610d25e6771f892995d9b86e",
         };
         setShowDash((prev) => prev + 1);
-        // console.log(payload);
+        console.log(payload);
         dispatch(postTutorData(payload));
 
         setTimeout(() => {
@@ -232,8 +233,9 @@ const Tutor = () => {
                     color="secondary"
                     required
                     className={classes.formControl}
+                    
                 >
-                    <InputLabel htmlFor="age-native-required">
+                    <InputLabel style={{fontSize:20}} htmlFor="age-native-required">
                         Subject
                     </InputLabel>
                     <Select
@@ -260,7 +262,7 @@ const Tutor = () => {
                     required
                     className={classes.formControl}
                 >
-                    <InputLabel htmlFor="location-native-required">
+                    <InputLabel style={{fontSize:20}} htmlFor="location-native-required">
                         Location
                     </InputLabel>
                     <Select

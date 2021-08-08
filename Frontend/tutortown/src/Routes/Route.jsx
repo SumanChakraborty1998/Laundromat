@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { Admin } from "../Components/Admin/Admin";
 import HomeMainPage from "./../Components/HomePage/HomeMainPage";
 import SignUpMain from "./../Components/SignUpPage/SignUpMain";
 import ButtonAppBar from "./../Components/HomePage/ButtonAppBar";
@@ -9,8 +8,9 @@ import { CheckOutMain } from "../Components/Payment/CheckOutMain";
 import LoginMain from "../Components/LoginPage/LoginMain";
 import StudentMainPage from "./../Components/StudentPage/StudentMainPage";
 import { TutorDashboard } from "./../Components/StudentPage/TutorDashboard";
-import { Main } from "../Components/Admin/VideoVerification/Main";
 import AdminDashboard from "../Components/Admin/AdminDashboard";
+import AdminAuth from "../Components/Admin/AdminAuth";
+import {Admin} from "../Components/Admin/Admin";
 
 const Routes = () => {
   return (
@@ -42,14 +42,14 @@ const Routes = () => {
             <CheckOutMain />
           </Route>
 
-          <Route path="/admin/tutorTown/authenticated" exact>
-            <Admin />
+          <Route path="/admin/tutorTown/authenticated/authorized" exact>
+            <AdminDashboard />
           </Route>
-          {/* <Route path='/admin/tutorTown/authenticated/main' exact>
-             <Main/>
-          </Route> */}
-          <Route path='/admindashboard'>
-            <AdminDashboard/>
+          <Route path='/admin/tutorTown/authenticated/verification' exact>
+             < Admin />
+          </Route>
+          <Route path='/admin/tutorTown/login'>
+            <AdminAuth/>
           </Route>
         </Switch>
       </div>

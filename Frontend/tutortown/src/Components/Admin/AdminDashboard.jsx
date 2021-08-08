@@ -214,7 +214,7 @@ const AdminDashboard = () => {
   // }
   const history = useHistory();
   const interview = () => {
-    history.push("/admin/tutorTown/authenticated");
+    history.push("/admin/tutorTown/authenticated/verification");
   };
 
   return (

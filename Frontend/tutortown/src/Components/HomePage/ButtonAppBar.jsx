@@ -24,10 +24,12 @@ const useStyles = makeStyles((theme) => ({
     },
     margin: {
         marginLeft: 50,
+        fontSize: 18,
     },
 }));
 
 export default function ButtonAppBar() {
+    
     const classes = useStyles();
     const history = useHistory();
 
@@ -58,7 +60,7 @@ export default function ButtonAppBar() {
                         variant="h6"
                         className={classes.title}
                     ></Typography>
-                    <Button className={classes.margin} color="inherit" onClick={() => handleUrlChange('/admindashboard')}>
+                    <Button className={classes.margin} color="inherit" onClick={() => handleUrlChange('/admin/tutorTown/login')}>
                         Admin
                     </Button>
                     <Button
