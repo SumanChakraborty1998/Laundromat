@@ -9,45 +9,53 @@ import { CheckOutMain } from "../Components/Payment/CheckOutMain";
 import LoginMain from "../Components/LoginPage/LoginMain";
 import StudentMainPage from "./../Components/StudentPage/StudentMainPage";
 import { TutorDashboard } from "./../Components/StudentPage/TutorDashboard";
+import { Main } from "../Components/Admin/VideoVerification/Main";
+import AdminDashboard from "../Components/Admin/AdminDashboard";
 
 const Routes = () => {
-    return (
-        <>
-            <ButtonAppBar />
-            <div>
-                <Switch>
-                    <Route path="/" exact>
-                        <HomeMainPage />
-                    </Route>
+  return (
+    <>
+      <ButtonAppBar />
+      <div>
+        <Switch>
+          <Route path="/" exact>
+            <HomeMainPage />
+          </Route>
 
-                    <Route path="/signup" exact>
-                        <SignUpMain />
-                    </Route>
+          <Route path="/signup" exact>
+            <SignUpMain />
+          </Route>
 
-                    <Route path="/login" exact>
-                        <LoginMain />
-                    </Route>
+          <Route path="/login" exact>
+            <LoginMain />
+          </Route>
 
-                    <Route path="/student/dashboard" exact>
-                        <StudentMainPage />
-                    </Route>
+          <Route path="/student/dashboard" exact>
+            <StudentMainPage />
+          </Route>
 
-                    <Route path="/tutor/dashboard" exact>
-                        <TutorDashboard />
-                    </Route>
+          <Route path="/tutor/dashboard" exact>
+            <TutorDashboard />
+          </Route>
 
-                    <Route path="/student/booking/payment" exact>
-                        <CheckOutMain />
-                    </Route>
+          <Route path="/student/booking/payment" exact>
+            <CheckOutMain />
+          </Route>
 
-                    <Route path="/admin/tutorTown/authenticated" exact>
-                        <Admin />
-                    </Route>
-                </Switch>
-            </div>
-            <Footer />
-        </>
-    );
+          <Route path="/admin/tutorTown/authenticated" exact>
+            <Admin />
+          </Route>
+          {/* <Route path='/admin/tutorTown/authenticated/main' exact>
+             <Main/>
+          </Route> */}
+          <Route path='/admindashboard'>
+            <AdminDashboard/>
+          </Route>
+        </Switch>
+      </div>
+      <Footer />
+    </>
+  );
 };
 
 export default Routes;
