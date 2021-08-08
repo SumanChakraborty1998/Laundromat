@@ -50,7 +50,7 @@ function SignUpCont() {
     };
 
     const qualificationInitialPayload = {
-        degree: "",
+        qualification: "",
         graduation_percentage: "",
         experience: "",
         skills: "",
@@ -198,13 +198,13 @@ function SignUpCont() {
 
     const handleSubmitStudentData = (e) => {
         e.preventDefault();
-        // dispatch(studentRegister(studentData));
+        dispatch(studentRegister(studentData));
         handleDone();
     }
 
     const handleSubmitTutorData = (e) => {
         e.preventDefault();
-        // dispatch(tutorRegister(fullTutorData));  
+        dispatch(tutorRegister(fullTutorData));  
         handleDone();
     }
 
@@ -426,7 +426,7 @@ function SignUpCont() {
                             </div>
                             <div className={styles.deg_marks_exp_input}>
                                 <select
-                                    name="degree"
+                                    name="qualification"
                                     onChange={handleTutorQualificationDetails}
                                 >
                                     <option>Select Degree</option>

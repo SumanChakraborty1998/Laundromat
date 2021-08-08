@@ -81,6 +81,7 @@ const tutorRegister = (payload) => (dispatch) => {
     })
     .catch((err) => {
         dispatch(tutorRegisterFailure(err));
+        console.log(err.message);
     })
 }
 
