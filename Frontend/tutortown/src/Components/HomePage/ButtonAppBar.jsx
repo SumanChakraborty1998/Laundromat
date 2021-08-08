@@ -57,8 +57,8 @@ export default function ButtonAppBar() {
                         variant="h6"
                         className={classes.title}
                     ></Typography>
-                    <Button className={classes.margin} color="inherit">
-                        About
+                    <Button className={classes.margin} color="inherit" onClick={() => handleUrlChange('/admindashboard')}>
+                        Admin
                     </Button>
                     <Button
                         className={classes.margin}

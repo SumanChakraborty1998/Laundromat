@@ -7,7 +7,7 @@ const tutorSchema = new mongoose.Schema(
             required: true,
         },
         mobile: {
-            type: Number,
+            type: String,
             required: false,
             minLength: 10,
             maxLength: 10,
@@ -52,7 +52,7 @@ const tutorSchema = new mongoose.Schema(
             required: false,
         },
         age: {
-            type: Number,
+            type: String,
             required: false,
         },
         gender: {
@@ -73,7 +73,7 @@ const tutorSchema = new mongoose.Schema(
             required: false,
         },
         graduation_percentage: {
-            type: Number,
+            type: String,
             required: false,
         },
         qualification: {
@@ -81,7 +81,7 @@ const tutorSchema = new mongoose.Schema(
             required: false,
         },
         experience: {
-            type: Number,
+            type: String,
             required: false,
         },
         linkedin: {
