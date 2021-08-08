@@ -7,6 +7,8 @@ import ButtonAppBar from "./../Components/HomePage/ButtonAppBar";
 import { Footer } from "../Components/HomePage/Footer";
 import { CheckOutMain } from "../Components/Payment/CheckOutMain";
 import LoginMain from "../Components/LoginPage/LoginMain";
+import StudentMainPage from "./../Components/StudentPage/StudentMainPage";
+import { TutorDashboard } from "./../Components/StudentPage/TutorDashboard";
 
 const Routes = () => {
     return (
@@ -17,19 +19,29 @@ const Routes = () => {
                     <Route path="/" exact>
                         <HomeMainPage />
                     </Route>
+
                     <Route path="/signup" exact>
                         <SignUpMain />
+                    </Route>
+
+                    <Route path="/login" exact>
+                        <LoginMain />
+                    </Route>
+
+                    <Route path="/student/dashboard" exact>
+                        <StudentMainPage />
+                    </Route>
+
+                    <Route path="/tutor/dashboard" exact>
+                        <TutorDashboard />
                     </Route>
 
                     <Route path="/student/booking/payment" exact>
                         <CheckOutMain />
                     </Route>
+
                     <Route path="/admin/tutorTown/authenticated" exact>
                         <Admin />
-                    </Route>
-
-                    <Route path="/login" exact>
-                        <LoginMain />
                     </Route>
                 </Switch>
             </div>

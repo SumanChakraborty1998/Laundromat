@@ -44,6 +44,8 @@ router.post("/auth/login", async (req, res) => {
     // console.log(typeof student._id);
     let bookings = await Booking.find({ student: student._id })
         .populate("tutor")
+        .populate("place")
+        .populate("subject")
         .lean()
         .exec();
 

@@ -7,7 +7,7 @@ const tutorSchema = new mongoose.Schema(
             required: true,
         },
         mobile: {
-            type: Number,
+            type: String,
             required: false,
             minLength: 10,
             maxLength: 10,
@@ -24,6 +24,10 @@ const tutorSchema = new mongoose.Schema(
         place: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "place",
+            required: false,
+        },
+        location: {
+            type: String,
             required: false,
         },
         current_address: {
@@ -43,8 +47,12 @@ const tutorSchema = new mongoose.Schema(
             required: true,
             minLength: 8,
         },
+        re_type: {
+            type: String,
+            required: false,
+        },
         age: {
-            type: Number,
+            type: String,
             required: false,
         },
         gender: {
@@ -65,11 +73,15 @@ const tutorSchema = new mongoose.Schema(
             required: false,
         },
         graduation_percentage: {
-            type: Number,
+            type: String,
+            required: false,
+        },
+        qualification: {
+            type: String,
             required: false,
         },
         experience: {
-            type: Number,
+            type: String,
             required: false,
         },
         linkedin: {
