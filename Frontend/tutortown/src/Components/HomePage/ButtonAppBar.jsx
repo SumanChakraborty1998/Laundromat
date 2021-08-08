@@ -47,7 +47,8 @@ export default function ButtonAppBar() {
                     >
                         {/* <MenuIcon /> */}
                         <img
-                            width="40px"
+                            width="50px"
+                            style={{borderRadius: "50%"}}
                             src={logo}
                             alt=""
                             onClick={() => history.push("/")}

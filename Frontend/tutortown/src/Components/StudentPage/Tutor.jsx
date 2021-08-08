@@ -4,13 +4,12 @@ import { getTutorData, postTutorData } from "../../Redux/Student/action";
 import styles from "./Tutor.module.css";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-// import TextField from '@material-ui/core/TextField';
 import InputLabel from "@material-ui/core/InputLabel";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
-// import NativeSelect from '@material-ui/core/NativeSelect';
 import axios from "axios";
+
 
 const useStyles = makeStyles((theme) => ({
     formControl: {
@@ -22,32 +21,12 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-// const useStyles = makeStyles((theme) => ({
-
-//   root: {
-//     '& > *': {
-//       margin: theme.spacing(1),
-//       width: '25ch',
-//     },
-//   },
-// }));
-
-// let mathematics=1
-// let science=2
-// let english=3
-// let computer=4
-// let arts=5
-
-// let delhi_east=10
-// let delhi_west=20
-// let delhi_south=30
-// let noida=40
 
 const Tutor = () => {
     const classes = useStyles();
 
-    const [demoCount, setDemoCount] = useState(0);
-    const [rowCount, setRowCount] = useState(0);
+    // const [demoCount, setDemoCount] = useState(0);
+    // const [rowCount, setRowCount] = useState(0);
 
     const [showDash, setShowDash] = useState(0);
 
@@ -152,7 +131,7 @@ const Tutor = () => {
         paymentObject.open();
         setTimeout(() => {
             handleBookDemo();
-        }, 10000);
+        }, 15000);
     }
 
     const handleSearch = (subj, loc) => {
@@ -173,14 +152,12 @@ const Tutor = () => {
 
         const payload = {
             tutor,
-            subject:
-                student_data?.bookings[0]?.subject ||
-                "610d4004c384fa09dcfc8436",
+            subject: "610d4004c384fa09dcfc8436",
             student: student_data?.student?._id,
             place: student_data?.student?.place?._id,
         };
         setShowDash((prev) => prev + 1);
-        console.log(payload);
+        // console.log(payload);
         dispatch(postTutorData(payload));
 
         setTimeout(() => {
