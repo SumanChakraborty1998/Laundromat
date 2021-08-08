@@ -42,7 +42,7 @@
   border: none;
   background-color: #f50057;
   height: 50px;
-  width: 85.5%;
+  width: 86%;
   padding-top: 1%;
 
   display: block;
@@ -84,14 +84,14 @@
   color: rgb(15, 14, 14);
   font-size: 15px;
   padding: 3%;
-   max-width: 33%;
+  max-width: 33%;
 
 
 
 }
 .stick {
   position: fixed;
-  margin-top: 33.6%;
+  margin-top: 35%;
   top: 0%;
 }
 .name {
@@ -100,7 +100,7 @@
   background-color: white;
 }
 .mes {
-  width: 87%;
+  width: 86.7%;
   margin-left: -15%;
   background-color: white;
   border-radius: none;
