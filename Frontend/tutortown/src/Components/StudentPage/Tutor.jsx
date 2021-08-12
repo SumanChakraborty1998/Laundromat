@@ -63,8 +63,8 @@ const Tutor = () => {
     // console.log(state2.location, state2.name);
 
     const tutorData = useSelector((state) => state.tutor.tutorData);
-    const place = useSelector((state) => state.tutor.place);
-    const student = useSelector((state) => state.tutor.student);
+    // const place = useSelector((state) => state.tutor.place);
+    // const student = useSelector((state) => state.tutor.student);
     const { student_data } = useSelector((state) => state.loginred);
 
     console.log(student_data);
@@ -90,6 +90,8 @@ const Tutor = () => {
     }
 
     async function displayRazorpay() {
+        // setCanBook(false);
+
         const res = await loadScript(
             "https://checkout.razorpay.com/v1/checkout.js",
         );
@@ -346,7 +348,7 @@ const Tutor = () => {
             {canBook && (
                 <div className={styles.bgCard}>
                     <div className={styles.demoModalCard}>
-                        {`You have successfully booked a free demo class. You can book 2 more classes.  You have successfully booked a free demo class. This is your last demo class.`}
+                        {`Successfully booked! Enjoy Learning.`}
                     </div>
                 </div>
             )}
