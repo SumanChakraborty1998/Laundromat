@@ -31,18 +31,15 @@ const TutorChat = () => {
     setState({ message: "", name });
   };
 
- 
   return (
     <div className={styles.chat}>
-      <div className={styles.msgbox}> 
-      {chat.map(({ name, message }, index) => (
-      
-      <h3 className={styles.content}>
-        <p className={styles.nam}>{name}: </p>
-        <span className={styles.messag}>{message}</span>
-      </h3>
-    
-  ))}
+      <div className={styles.msgbox}>
+        {chat.map(({ name, message }, index) => (
+          <h3 className={styles.content}>
+            <p className={styles.nam}>{name}: </p>
+            <span className={styles.messag}>{message}</span>
+          </h3>
+        ))}
       </div>
       <div className={styles.stick}>
         <form onSubmit={onMessageSubmit}>
@@ -64,7 +61,6 @@ const TutorChat = () => {
                 id="outlined-multiline-static"
                 variant="outlined"
                 label="Message"
-
               />
             </div>
           </div>
